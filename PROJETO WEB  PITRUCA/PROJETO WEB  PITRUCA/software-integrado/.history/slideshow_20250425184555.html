@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Slideshow Automático</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      
+    }
+
+    .slideshow {
+      width: 600px;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .slides {
+      display: flex;
+      width: 400%; /* 4 imagens */
+      height: 100%;
+      animation: slide 16s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0); }
+      25%  { transform: translateX(0); }
+      30%  { transform: translateX(-100%); }
+      50%  { transform: translateX(-100%); }
+      55%  { transform: translateX(-200%); }
+      75%  { transform: translateX(-200%); }
+      80%  { transform: translateX(-300%); }
+      100% { transform: translateX(-300%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow">
+    <div class="slides">
+      <img src="img/" alt="Imagem 1">
+      <img src="https://via.placeholder.com/600x400?text=Imagem+2" alt="Imagem 2">
+      <img src="https://via.placeholder.com/600x400?text=Imagem+3" alt="Imagem 3">
+      <img src="https://via.placeholder.com/600x400?text=Imagem+4" alt="Imagem 4">
+    </div>
+  </div>
+
+</body>
+</html>

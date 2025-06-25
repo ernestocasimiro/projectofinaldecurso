@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard com Alternância de Tema</title>
+  <style>
+    /* Estilo base (tema claro) */
+    body {
+      background-color: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      transition: all 0.3s ease;
+      padding: 20px;
+    }
+
+    /* Tema escuro */
+    body.dark {
+      background-color: #121212;
+      color: white;
+    }
+
+    button {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .dashboard {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    body.dark .dashboard {
+      border-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <button id="toggleTheme">Alternar Tema</button>
+
+  <div class="dashboard">
+    <h1>Minha Dashboard</h1>
+    <p>Conteúdo da dashboard aqui...</p>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleTheme');
+
+    // Verifica se já tem preferência salva
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      // Salva a preferência
+      const isDark = document.body.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

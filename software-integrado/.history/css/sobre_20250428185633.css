@@ -1,0 +1,335 @@
+
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+}
+
+.stat-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 18px;
+    color: #666;
+}
+.titulo{
+    text-align: center;
+    margin-top: 6%;
+    color:rgb(139, 139, 233);
+}
+.dd{
+    margin-right: 2%;
+}
+
+
+
+/* Estilo do contêiner principal que envolve as três caixas */
+.containerr {
+display: flex; /* Usa flexbox para organizar as divs lado a lado */
+justify-content: space-around; /* Distribui espaço uniformemente entre os elementos */
+flex-wrap: wrap; /* Permite que as caixas quebrem para a linha de baixo se o espaço acabar */
+padding: 40px 20px; /* Espaçamento interno: 40px em cima/baixo, 20px nas laterais */
+background-color: #ffffff; /* Cor de fundo branca */
+
+}
+
+/* Estilo para cada uma das três caixas */
+.boxx {
+background-color: #1a73e8; /* Cor de fundo azul forte */
+color: white; /* Cor do texto branca */
+border-radius: 10px; /* Bordas arredondadas */
+padding: 30px 25px; /* Espaçamento interno: 30px em cima/baixo, 25px nas laterais */
+width: 320px; /* Largura fixa de 300px */
+margin: 15px; /* Espaçamento externo entre as caixas */
+box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave ao redor da caixa */
+transition: 0.3s;
+}
+
+/* Estilo dos títulos principais dentro das caixas */
+.boxx h2 {
+margin-top: 0; /* Remove a margem superior padrão */
+font-size: 22px; /* Tamanho da fonte do título */
+}
+
+/* Estilo dos subtítulos (por exemplo, "Alunos Especiais") */
+.boxx h4 {
+margin: 0; /* Remove margem total */
+font-weight: normal; /* Peso normal da fonte (não em negrito) */
+font-size: 14px; /* Tamanho da fonte pequeno */
+color: #d0e2ff; /* Cor azul clara para contraste com o fundo */
+}
+
+.boxx:hover{
+transform: translateY(-5px);
+box-shadow: 0 4px 12px rgba(108, 61, 240, 0.9);
+}
+/* Estilo para os parágrafos */
+.boxx p {
+font-size: 16px; /* Tamanho da fonte do parágrafo */
+line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+/* Estilo da lista de horários */
+.horario {
+list-style: none; /* Remove os marcadores padrão da lista */
+padding: 0; /* Remove o espaçamento interno */
+margin: 20px 0 0 0; /* Margem superior de 20px, outras margens zeradas */
+font-size: 16px; /* Tamanho da fonte da lista */
+}
+
+/* Estilo de cada item da lista de horário */
+.horario li {
+display: flex; /* Flexbox para alinhar o texto dos dias e horários */
+justify-content: space-between; /* Espaço entre o nome do dia e o horário */
+padding: 6px 0; /* Espaçamento vertical de 6px */
+border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória clara */
+}
+.teste{
+margin-left: 3%;
+}
+
+/*====== Área do slide ============*/
+.slider{
+    margin: 0 auto;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+   }
+
+.slides{
+    width: 400%;
+    height: 300px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+.slide{
+    width: 25%;
+    position: relative;
+    transition: 2s;
+}
+
+.slide img{
+    width: 100%;
+}
+
+.manual-navigation{
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn{
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .50s;
+}
+/* Permite dar espaçamento entre os botões menos no último */
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+.manual-btn:hover{
+    background-color: #fff;
+}
+
+#radio1:checked ~ .first{
+    margin-left:0;
+}
+#radio2:checked ~ .first{
+    margin-left: -25%;
+}
+#radio3:checked ~ .first{
+    margin-left: -50%;
+}
+#radio4:checked ~ .first{
+    margin-left: -75%;
+}
+
+.navigation-auto div {
+    border: 2px solid blueviolet;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .50s;
+}
+
+.navigation-auto{
+    position: absolute;
+    width: 100%;
+    margin-top: 260px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background-color: #fff;
+}
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background-color: #fff;
+}
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background-color: #fff;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background-color: #fff;
+}
+
+/* Área do overlay (camada que fica por cima do slide), ou seja, o filtro*/
+.slide {
+    position: relative; /* para o overlay ficar em cima */
+}
+
+.slide .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 131, 238, 0.183); /* Cor preta com 40% de transparência */
+    pointer-events: none; /* não bloqueia clique nos botões */
+}
+ /* Fim do overlay (camada que fica por cima do slide), ou seja, o filtro*/
+
+/*==== Fim da Área do slide ========*/
+.ppp{
+    text-align: center;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 3%;
+}
+
+  /*Área da missão, valores*/
+    .container1 {
+        padding: 40px 20px;
+        max-width: 1100px;
+        margin: auto;
+}
+
+.missao-h2 {
+    color: #003366;
+    margin-bottom: 4%;
+}
+
+.section1 {
+    margin-bottom: 40px;
+}
+
+.about-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.values1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.value-card1 {
+    flex: 1 1 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.missao-h3 {
+    color: #004080;
+}
+/*Fim Área da missão, valores*/
+
+.instalacoes-h3{
+    color: #1a73e8;
+    margin-left: 8%;
+    margin-bottom: 4%;
+    text-align: center;
+    }
+.linha{
+    width: 20px;
+    height: 20px;
+    b
+}
+ .instalacoes-p{
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+ }   
+.slider-container {
+    width: 100%; /* Agora o slide ocupa 100% da tela */
+    overflow: hidden; /* Esconde partes das imagens que estão fora do container */
+    position: relative; /* Necessário para posicionar os botões dentro da div */
+  }
+  .slider-track {
+    display: flex; /* Deixa as imagens lado a lado */
+    transition: transform 0.5s ease; /* Animação suave na transição */
+  }
+  .slidee {
+    flex: 0 0 calc(100% / 3); /* Cada imagem ocupa 1/3 da tela */
+    padding: 10px; /* Espaço interno em volta de cada imagem */
+  }
+  .slidee img {
+    width: 100%; /* Imagem ocupa todo o espaço da div */
+    height: 280px; /* Altura fixa (pode ajustar) */
+    object-fit: cover; /* Cobre toda a área da imagem sem distorcer */
+    
+  }
+  .btn {
+    position: absolute; /* Para posicionar em cima do slide */
+    top: 62%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste fino da centralização */
+    background: rgba(113, 13, 236, 0.674); /* Fundo escuro semi-transparente */
+    color: white; /* Cor do ícone */
+    border: none; /* Sem borda */
+    padding: 10px 16px; /* Tamanho do botão */
+    cursor: pointer; /* Muda o cursor para mãozinha */
+    font-size: 18px; /* Tamanho do ícone */
+    border-radius: 50%; /* Deixa o botão redondo */
+    z-index: 10; /* Deixa o botão acima das imagens */
+  }
+  .btn.prev {
+    left: 20px; /* Distância da esquerda */
+  }
+  .btn.next {
+    right: 20px; /* Distância da direita */
+  }
+  .prev:hover,
+  .next:hover{
+      background-color: blue;
+      transition: .5s;
+  }

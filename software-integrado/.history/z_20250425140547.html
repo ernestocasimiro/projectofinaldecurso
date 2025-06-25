@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+/* Define o estilo padrão do corpo da página */
+body {
+  margin: 0; /* Remove a margem padrão do navegador */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte usada no corpo */
+  background-color: #f8f9fa; /* Cor de fundo clara */
+}
+
+/* Estilo do contêiner principal que envolve as três caixas */
+.container {
+  display: flex; /* Usa flexbox para organizar as divs lado a lado */
+  justify-content: space-around; /* Distribui espaço uniformemente entre os elementos */
+  flex-wrap: wrap; /* Permite que as caixas quebrem para a linha de baixo se o espaço acabar */
+  padding: 40px 20px; /* Espaçamento interno: 40px em cima/baixo, 20px nas laterais */
+  background-color: #ffffff; /* Cor de fundo branca */
+}
+
+/* Estilo para cada uma das três caixas */
+.box {
+  background-color: #1a73e8; /* Cor de fundo azul forte */
+  color: white; /* Cor do texto branca */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 30px 25px; /* Espaçamento interno: 30px em cima/baixo, 25px nas laterais */
+  width: 300px; /* Largura fixa de 300px */
+  margin: 15px; /* Espaçamento externo entre as caixas */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave ao redor da caixa */
+}
+
+/* Estilo dos títulos principais dentro das caixas */
+.box h2 {
+  margin-top: 0; /* Remove a margem superior padrão */
+  font-size: 22px; /* Tamanho da fonte do título */
+}
+
+/* Estilo dos subtítulos (por exemplo, "Alunos Especiais") */
+.box h4 {
+  margin: 0; /* Remove margem total */
+  font-weight: normal; /* Peso normal da fonte (não em negrito) */
+  font-size: 14px; /* Tamanho da fonte pequeno */
+  color: #d0e2ff; /* Cor azul clara para contraste com o fundo */
+}
+
+.box:
+/* Estilo para os parágrafos */
+.box p {
+  font-size: 16px; /* Tamanho da fonte do parágrafo */
+  line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+/* Estilo da lista de horários */
+.horario {
+  list-style: none; /* Remove os marcadores padrão da lista */
+  padding: 0; /* Remove o espaçamento interno */
+  margin: 20px 0 0 0; /* Margem superior de 20px, outras margens zeradas */
+  font-size: 16px; /* Tamanho da fonte da lista */
+}
+
+/* Estilo de cada item da lista de horário */
+.horario li {
+  display: flex; /* Flexbox para alinhar o texto dos dias e horários */
+  justify-content: space-between; /* Espaço entre o nome do dia e o horário */
+  padding: 6px 0; /* Espaçamento vertical de 6px */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória clara */
+}
+
+    </style>
+
+</head>
+
+<body>
+    
+   
+    <body>
+      <div class="container">
+        <div class="box">
+          <h2>Enfermaria Pitruça</h2>
+          <p>A enfermaria do Colégio Pitruça é um refúgio acolhedor para alunos em necessidade, oferecendo cuidados médicos e conforto em tempos de doença ou lesão.</p>
+        </div>
+    
+        <div class="box">
+          <h4>Alunos Especiais</h4>
+          <h2>Cuidados Com Alunos Especiais</h2>
+          <p>Daremos a atenção necessária para o seu filho que possui uma condição médica muito delicada tentando ajudá-lo ao máximo.</p>
+        </div>
+    
+        <div class="box">
+          <h2>Horario De Atendimento</h2>
+          <ul class="horario">
+            <li><span>Segunda</span><span>8.00 – 17:00</span></li>
+            <li><span>Terça</span><span>8.00 – 17:00</span></li>
+            <li><span>Quarta</span><span>8.00 – 17:00</span></li>
+            <li><span>Quinta</span><span>8.00 – 17:00</span></li>
+            <li><span>Sexta</span><span>8.00 – 17:00</span></li>
+            <li><span>Sábado</span><span>8.00 – 12:00</span></li>
+          </ul>
+        </div>
+      </div>
+    </body>
+    </html>
+    
+
+</body>
+</html>

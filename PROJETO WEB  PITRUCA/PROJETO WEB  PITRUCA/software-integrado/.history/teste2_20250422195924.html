@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cursos da Escola</title>
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f6f9;
+      color: #2c3e50;
+    }
+
+    header {
+      background-color: #3498db;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+
+    .descricao-curso {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .descricao-curso img {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      height: 200px;
+    }
+
+    .descricao-texto {
+      flex: 2;
+      min-width: 300px;
+    }
+
+    .descricao-texto h3 {
+      margin-top: 0;
+      color: #34495e;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .curso {
+      background-color: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .curso:hover {
+      transform: translateY(-5px);
+    }
+
+    .curso img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .curso-content {
+      padding: 20px;
+    }
+
+    .curso-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .curso h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .toggle-btn {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .curso-conteudo {
+      display: none;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #ecf0f1;
+      color: #555;
+    }
+
+    @media(max-width: 768px) {
+      .descricao-curso {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .descricao-curso img {
+        width: 100%;
+      }
+
+    }
+  </style>
+</head>
+<body>
+
+
+       <!-- Navbar Start -->
+
+    <!-- border-5 muda o tamanho da borda amarela no início do site, border-warning muda a cor -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-white sticky-top p-0">
+
+        <a href="index.html" class="logo">
+            <img class="logo" src="img/file.png" alt="">
+        </a>
+        <a href="index.html" class="navbar-brand bg-white d-flex align-items-center px-4 px-lg-5">
+
+            <h2 class="mb-2 text-black">Colégio Pitruca </h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"> 
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Início</a>
+                <a href="sobre.html" class="nav-item nav-link">Sobre</a>
+                <a href="cursos.html" class="nav-item nav-link">Cursos</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="price.html" class="dropdown-item">Pricing Plan</a>
+                        <a href="feature.html" class="dropdown-item">Features</a>
+                        <a href="quote.html" class="dropdown-item">Free Quote</a>
+                        <a href="team.html" class="dropdown-item">Nosso Time</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="404.html" class="dropdown-item">404 Page</a>
+                    </div>
+                </div>
+                <a href="localizacao.html" class="nav-item nav-link">Localização</a>
+            </div>
+
+            <a href="login.html">
+                <h4 class="m-0 pe-lg-5 d-none d-lg-block"><i class="fa fa-user text-warning me-3"></i></h4>
+            </a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+<header>
+  <h1>Cursos e Etapas da Nossa Escola</h1>
+  <p>Conheça mais sobre as fases da educação oferecidas pela nossa instituição</p>
+</header>
+
+<div class="container">
+
+  <h2 class="section-title">Educação Infantil</h2>
+  <div class="descricao-curso">
+    <img src="img/criancas.jpg" alt="Educação Infantil">
+    <div class="descricao-texto">
+      <h3>Primeiros Passos para Grandes Descobertas</h3>
+      <p>A Educação Infantil é o início da jornada escolar. Nosso objetivo é garantir um ambiente acolhedor e seguro, onde as crianças aprendem brincando, com atenção ao desenvolvimento afetivo, motor e cognitivo.</p>
+      <p>Contamos com espaços lúdicos, profissionais experientes e uma rotina leve, que equilibra brincadeiras, alimentação saudável e atividades pedagógicas criativas.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Ensino Fundamental</h2>
+  <div class="descricao-curso">
+    <img src="https://images.unsplash.com/photo-1600051844683-4b11fc144239?auto=format&fit=crop&w=800&q=60" alt="Ensino Fundamental">
+    <div class="descricao-texto">
+      <h3>Formando Bases Sólidas para o Futuro</h3>
+      <p>No Ensino Fundamental, nossos alunos constroem conhecimento com autonomia e senso crítico. Trabalhamos com metodologias ativas, tecnologia educacional e um currículo completo para desenvolver múltiplas inteligências.</p>
+      <p>Valorizamos o respeito, o diálogo e o trabalho em equipe, preparando os alunos não apenas para o conteúdo, mas também para a vida em sociedade.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Ensino Médio</h2>
+  <div class="descricao-curso">
+    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=60" alt="Ensino Médio">
+    <div class="descricao-texto">
+      <h3>Preparação Acadêmica e Profissional</h3>
+      <p>O Ensino Médio é voltado para a consolidação do conhecimento e preparação para os desafios do ENEM, vestibulares e mercado de trabalho. Incentivamos projetos autorais, pesquisa e desenvolvimento de habilidades socioemocionais.</p>
+      <p>Oferecemos orientação vocacional, simulados, apoio psicológico e recursos modernos, como plataformas digitais e acompanhamento personalizado.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Resumo Interativo dos Cursos</h2>
+  <div class="grid">
+
+    <div class="curso">
+      <img src="https://images.unsplash.com/photo-1596558450255-079d3a4993de?auto=format&fit=crop&w=800&q=60" alt="Educação Infantil">
+      <div class="curso-content">
+        <div class="curso-header" >
+          <h2>Educação Infantil</h2>
+          <button class="toggle-btn" onclick="toggleConteudo(this)">Ver mais</button>
+        </div>
+        <div class="curso-conteudo">
+          <p><strong>Faixa Etária:</strong> 2 a 5 anos</p>
+          <p><strong>Atividades:</strong> Brincadeiras dirigidas, contação de histórias, musicalização, psicomotricidade.</p>
+          <p><strong>Objetivo:</strong> Desenvolver habilidades emocionais, motoras e cognitivas com afeto e ludicidade.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="curso">
+      <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=60" alt="Ensino Fundamental">
+      <div class="curso-content">
+        <div class="curso-header">
+          <h2>Ensino Fundamental</h2>
+          <button class="toggle-btn" onclick="toggleConteudo(this)">Ver mais</button>
+        </div>
+        <div class="curso-conteudo">
+          <p><strong>Anos:</strong> 1º ao 9º ano</p>
+          <p><strong>Disciplinas:</strong> Português, Matemática, Ciências, História, Geografia, Inglês, Artes.</p>
+          <p><strong>Objetivo:</strong> Consolidar competências básicas e formar cidadãos conscientes e críticos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="curso">
+      <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=60" alt="Ensino Médio">
+      <div class="curso-content">
+        <div class="curso-header" >
+          <h2>Ensino Médio</h2>
+          <button class="toggle-btn" onclick="toggleConteudo(this)">Ver mais</button>
+        </div>
+        <div class="curso-conteudo">
+          <p><strong>Duração:</strong> 3 anos</p>
+          <p><strong>Foco:</strong> ENEM, vestibulares, pensamento científico e orientação profissional.</p>
+          <p><strong>Objetivo:</strong> Ampliar o repertório acadêmico e preparar o aluno para a vida adulta.</p>
+          <a href="cursos.html"> <p><strong>Clique aqui par ver os  cursos</strong></p> </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 - Escola Modelo | Todos os direitos reservados</p>
+</footer>
+
+<script>
+ function toggleConteudo(botao) {
+  const conteudo = botao.closest('.curso-content').querySelector('.curso-conteudo');
+
+  if (conteudo.style.display === 'block') {
+    conteudo.style.display = 'none';
+    botao.innerText = 'Ver mais';
+  } else {
+    conteudo.style.display = 'block';
+    botao.innerText = 'Ver menos';
+  }
+}
+
+
+</script>
+
+</body>
+</html>

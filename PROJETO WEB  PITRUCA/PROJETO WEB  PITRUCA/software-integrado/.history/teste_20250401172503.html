@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contadores Dinâmicos</title>
+    <link href="" rel=""
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="number" data-target="2000">0</div>
+            <div class="text">Estudantes</div>
+        </div>
+        <div class="box">
+            <div class="number" data-target="40">0</div>
+            <div class="text">Licenciados</div>
+        </div>
+        <div class="box">
+            <div class="number" data-target="12">0</div>
+            <div class="text">Pais Satisfeitos</div>
+        </div>
+        <div class="box">
+            <div class="number" data-target="160">0</div>
+            <div class="text">Professores</div>
+        </div>
+    </div>
+    <script>
+        const counters = document.querySelectorAll('.number');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 100;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    </script>
+</body>
+</html>

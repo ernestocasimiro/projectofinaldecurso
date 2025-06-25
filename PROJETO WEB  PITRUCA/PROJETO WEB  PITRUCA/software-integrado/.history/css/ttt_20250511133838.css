@@ -1,0 +1,103 @@
+
+/* Primeira Secção */
+h1{
+    text-align: center;
+    margin-top: 4%;
+
+}
+.ppp{
+    margin: 3% 4% 4%;
+    text-align: center;
+}
+/* Fim - Primeira Secção */
+
+
+/* Primeira Secção */
+.ccontainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 5%;
+    margin: 0 5%;
+  }
+
+  .ccard {
+    position: relative;
+    width: 30%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .ooverlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-size: 18px;
+  }
+
+/* Tipos de inteligência */
+
+h3{
+    text-align: center;
+    margin-bottom: 3%;
+}
+.texto{
+    margin: 0px 4%;
+    text-align: center;
+}
+.slider-container {
+    width: 100%; /* Agora o slide ocupa 100% da tela */
+    overflow: hidden; /* Esconde partes das imagens que estão fora do container */
+    position: relative; /* Necessário para posicionar os botões dentro da div */
+    margin: 5% 0px;
+  }
+  .slider-track {
+    display: flex; /* Deixa as imagens lado a lado */
+    transition: transform 0.5s ease; /* Animação suave na transição */
+    margin-top: 4;
+  }
+  .slideee {
+    flex: 0 0 calc(100% / 3); /* Cada imagem ocupa 1/3 da tela */
+    padding: 10px; /* Espaço interno em volta de cada imagem */
+  }
+  .slideee img {
+    width: 100%; /* Imagem ocupa todo o espaço da div */
+    height: 280px; /* Altura fixa (pode ajustar) */
+    object-fit: cover; /* Cobre toda a área da imagem sem distorcer */
+    
+  }
+  .btnn {
+    position: absolute; /* Para posicionar em cima do slide */
+    top: 62%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste fino da centralização */
+    background: rgba(113, 13, 236, 0.674); /* Fundo escuro semi-transparente */
+    color: white; /* Cor do ícone */
+    border: none; /* Sem borda */
+    padding: 10px 16px; /* Tamanho do botão */
+    cursor: pointer; /* Muda o cursor para mãozinha */
+    font-size: 18px; /* Tamanho do ícone */
+    border-radius: 50%; /* Deixa o botão redondo */
+    z-index: 10; /* Deixa o botão acima das imagens */
+  }
+  .btnn.prev {
+    left: 20px; /* Distância da esquerda */
+  }
+  .btnn.next {
+    right: 20px; /* Distância da direita */
+  }
+  .prev:hover,
+  .next:hover{
+      background-color: blue;
+      transition: .5s;
+    }
+    /* Fim - Tipos de inteligência */

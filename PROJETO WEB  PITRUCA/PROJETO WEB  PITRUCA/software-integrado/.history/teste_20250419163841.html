@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style
+</head>
+<body>
+    
+    <!-- Bloco principal de cursos -->
+<div class="container-xxl py-5">
+    <div class="container py-5">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="text-secondary text-uppercase">Cursos Disponíveis</h6>
+            <h1 class="mb-5">Explore os mais diversos cursos</h1>
+        </div>
+        <div class="row g-4">
+
+            <!-- Curso 1 -->
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="img/cursocej.png" alt="">
+                    </div>
+                    <h4 class="mb-3">Ciências Económicas e jurídicas</h4>
+                    <p>Este curso integra conhecimentos de economia e direito...</p>
+                    <!-- Botão para abrir o pop-up -->
+                    <a class="btn-slide mt-2" href="#" onclick="openModal(1)"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                </div>
+            </div>
+
+            <!-- Repita a estrutura para os outros cursos -->
+            <!-- Curso 2 -->
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="img/cursocfb.png" alt="">
+                    </div>
+                    <h4 class="mb-3">Ciências Físicas e Biológicas</h4>
+                    <p>Explora os princípios da física e biologia...</p>
+                    <a class="btn-slide mt-2" href="#" onclick="openModal(2)"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                </div>
+            </div>
+
+            <!-- Curso 3 -->
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="img/cursoenfermagem.png" alt="">
+                    </div>
+                    <h4 class="mb-3">Enfermagem</h4>
+                    <p>Forma profissionais de saúde capacitados para prestar cuidados...</p>
+                    <a class="btn-slide mt-2" href="#" onclick="openModal(3)"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                </div>
+            </div>
+
+            <!-- Curso 4 -->
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="img/cursoinformatica.png" alt="">
+                    </div>
+                    <h4 class="mb-3">Informática</h4>
+                    <p>O curso oferece uma formação sólida em TI...</p>
+                    <a class="btn-slide mt-2" href="#" onclick="openModal(4)"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                </div>
+            </div>
+
+            <!-- Curso 5 -->
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="img/cursocontabilidade.png" alt="">
+                    </div>
+                    <h4 class="mb-3">Contabilidade e Gestão</h4>
+                    <p>Focado no gerenciamento financeiro...</p>
+                    <a class="btn-slide mt-2" href="#" onclick="openModal(5)"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                </div>
+            </div>
+
+            <!-- Curso 6 -->
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="img/cursoeletro.png" alt="">
+                    </div>
+                    <h4 class="mb-3">Electromecânica</h4>
+                    <p>Capacita profissionais para trabalhar com sistemas elétricos e mecânicos...</p>
+                    <a class="btn-slide mt-2" href="#" onclick="openModal(6)"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Pop-ups (modais) para cada curso -->
+<!-- Overlay escurecido e conteúdo do pop-up -->
+<div id="overlay" class="overlay" onclick="closeModal()"></div>
+
+<!-- Cada modal com conteúdo extra -->
+<div class="modal-box" id="modal-1">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Ciências Económicas e Jurídicas</h3>
+        <p>Conteúdo adicional detalhado sobre o curso, com disciplinas, saídas profissionais e mais.</p>
+    </div>
+</div>
+
+<div class="modal-box" id="modal-2">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Ciências Físicas e Biológicas</h3>
+        <p>Detalhes sobre laboratórios, carga horária, perfil do egresso e atuação profissional.</p>
+    </div>
+</div>
+
+<div class="modal-box" id="modal-3">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Enfermagem</h3>
+        <p>Informações sobre estágios, carga horária e disciplinas como anatomia, farmacologia, etc.</p>
+    </div>
+</div>
+
+<div class="modal-box" id="modal-4">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Informática</h3>
+        <p>Detalhes sobre linguagens de programação, redes, banco de dados, infraestrutura e mais.</p>
+    </div>
+</div>
+
+<div class="modal-box" id="modal-5">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Contabilidade e Gestão</h3>
+        <p>Explicações sobre contabilidade financeira, fiscal, auditoria, gestão empresarial.</p>
+    </div>
+</div>
+
+<div class="modal-box" id="modal-6">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Electromecânica</h3>
+        <p>Detalhes técnicos sobre elétrica, mecânica, automação industrial e suas aplicações.</p>
+    </div>
+</div>
+
+
+</body>
+</html>

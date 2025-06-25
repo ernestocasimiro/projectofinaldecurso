@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+
+    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+    <style>
+        .cover{
+            width: 100%;
+            height: 10px;
+            margin-top: 2%;
+        }
+        .box{
+            width: 32%;
+            height: 232px;
+            float: left;
+            margin-right: 2%;
+            box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .box1{
+            width: 32%;
+            height: 232px;
+            float: left;
+            margin-right: 2%;
+            box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .box2{
+            width: 32%;
+            height: 232px;
+            float: left ;
+            box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .box, .box1, .box2{
+            border-radius: 15px;
+            overflow: hidden; /* força o conteúdo a respeitar o border-radius */
+        }
+        .box:hover,
+        .box1:hover,
+        .box2:hover{
+            transform: translateY(-5px);
+        }
+        .tt{
+            width: 100%;
+            height: 150px;
+            object-fit: cover; /* Faz a imagem preencher a div mantendo proporção */
+            display: block;
+            
+        }
+        .header-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Isso joga o botão pro lado direito */
+        padding: 10px;
+    }
+    .botao{
+        cursor: pointer;
+        color: aliceblue;
+        background-color: yellowgreen;
+        border: none;
+        padding: 5px 5px;
+        border-radius: 4px;
+    }
+    </style>
+</head>
+<body>
+    
+  <!--Primeira coluna -->
+  <div class="cover">
+
+    <div class="box">
+          
+        <img class="tt" src="imagens/Informática.jpg">
+        <div class="header-bar">
+            <h2>Informática</h2>
+            <button class="botao">Ler mais</button>
+        </div>
+    </div>
+
+    <div class="box1">
+        <img class="tt" src="imagens/Económicas e jurídicas.jpg">
+        <div class="header-bar">
+            <h2>Económica e Jurídicas</h2>
+           <a href=""> <button class="botao">Ler mais</button></a> 
+        </div>
+    </div>
+
+    <div class="box2">
+        <img class="tt" src="imagens/Contabilidade e gestão.jpg">
+        <div class="header-bar">
+            <h2>Contabilidade e Gestão</h2>
+          <a href=""> <button class="botao">Ler mais</button> </a>  
+        </div>
+    
+    </div>
+</div>
+<!--Fim da primeira linha-->
+
+
+
+</body>
+</html>
+
+</body>
+</html>
