@@ -62,6 +62,7 @@ $anoLetivo = '2025';
     <title>Comunicados - Dashboard Encarregados</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<<<<<<< HEAD
     <style>
         :root {
             --primary-color: #4361ee;
@@ -639,11 +640,14 @@ $anoLetivo = '2025';
             }
         }
     </style>
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 </head>
 <body>
     <div class="container">
         <!-- Sidebar Menu -->
         <aside class="sidebar">
+<<<<<<< HEAD
              <div class="sidebar-header">
                 <h2>Pítruca Camama</h2>
             </div>
@@ -657,6 +661,14 @@ $anoLetivo = '2025';
                 </div>
                 <div class="profile-info">
                     <h3><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></h3>
+=======
+            <div class="sidebar-header">
+                <h2>Pitruca Camama</h2>
+            </div>
+            <div class="profile">
+                <div class="profile-info">
+                    <h3><span><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></span></h1></h3>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <p>Encarregado/a de Educação</p>
                 </div>
             </div>
@@ -710,15 +722,25 @@ $anoLetivo = '2025';
                             <span class="menu-text">Boletins</span>
                         </a>
                     </li>
+<<<<<<< HEAD
                 </ul>
             </nav>
             <div class="sidebar-footer">
                 <!-- 
+=======
+                   
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="configuracoes.php">
                     <span class="material-symbols-outlined">settings</span>
                     <span class="menu-text">Configurações</span>
                 </a>
+<<<<<<< HEAD
     -->
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>
@@ -913,6 +935,14 @@ $anoLetivo = '2025';
     </div>
 
     <script>
+<<<<<<< HEAD
+=======
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.content').classList.toggle('expanded');
+        });
+
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         // Mark as read functionality
         document.querySelectorAll('.communication-item').forEach(item => {
             item.addEventListener('click', function() {
@@ -923,5 +953,153 @@ $anoLetivo = '2025';
             });
         });
     </script>
+<<<<<<< HEAD
+=======
+
+    <style>
+        .communications-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .communication-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .communication-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .communication-item.unread {
+            border-left-color: var(--primary-color);
+            background-color: rgba(74, 111, 220, 0.02);
+        }
+
+        .communication-item.important {
+            border-left-color: #ff9800;
+        }
+
+        .communication-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .communication-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .communication-category {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .communication-category.academic {
+            background-color: rgba(33, 150, 243, 0.1);
+            color: #2196f3;
+        }
+
+        .communication-category.event {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+        }
+
+        .communication-category.administrative {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+        }
+
+        .communication-category.general {
+            background-color: rgba(156, 39, 176, 0.1);
+            color: #9c27b0;
+        }
+
+        .communication-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .communication-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .important-icon {
+            color: #ff9800;
+        }
+
+        .communication-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .communication-content p {
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .communication-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .sender {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .communication-tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 2px 8px;
+            background-color: var(--secondary-color);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .load-more-container {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .communication-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .communication-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 </body>
 </html>

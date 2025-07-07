@@ -1117,12 +1117,20 @@ if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
             </li>
            
             
+<<<<<<< HEAD
             <!-- Configurações 
+=======
+            <!-- Configurações -->
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             <li data-tab="settings" class="<?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'active' : ''; ?>">
                 <a href="settings.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'current' : ''; ?>">
                     <i class="fas fa-cog"></i> 
                     <span>Configurações</span>
+<<<<<<< HEAD
                 </a>-->
+=======
+                </a>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             </li>
 
             <a href="/dashboardpitruca/login/logout.php" class="fixed-logout-btn" title="Sair do Sistema">

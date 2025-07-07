@@ -645,7 +645,14 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
+<<<<<<< HEAD
                
+=======
+                <a href="configuracoes.php">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="menu-text">Configurações</span>
+                </a>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>
@@ -669,6 +676,13 @@
             <div class="dashboard-content">
                 <div class="page-header">
                     <h1>Gestão de Alunos</h1>
+<<<<<<< HEAD
+=======
+                    <button class="btn-primary" onclick="adicionarAluno()">
+                        <span class="material-symbols-outlined">person_add</span>
+                        Adicionar Aluno
+                    </button>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 </div>
                 
                 <!-- Estatísticas dos Alunos -->
@@ -774,6 +788,10 @@
                         <?php foreach($estudantes as $index => $estudante): ?>
                             <div class="student-card" 
                                  data-nome="<?php echo htmlspecialchars(strtolower($estudante['fname'] . ' ' . $estudante['lname'])); ?>"
+<<<<<<< HEAD
+=======
+                                 data-status="<?php echo htmlspecialchars($estudante['status']); ?>"
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                  data-genero="<?php echo htmlspecialchars($estudante['genero']); ?>">
                                 <div class="student-header">
                                     <div class="student-avatar">
@@ -805,11 +823,26 @@
                                 </div>
                                 
                                 <div class="student-status">
+<<<<<<< HEAD
+=======
+                                    <span class="status-badge <?php echo $estudante['status'] == 'ativo' ? 'status-active' : 'status-inactive'; ?>">
+                                        <?php echo ucfirst($estudante['status']); ?>
+                                    </span>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <div class="student-actions">
                                         <button class="action-btn view" title="Ver detalhes" onclick="verDetalhes(<?php echo $index; ?>)">
                                             <span class="material-symbols-outlined">visibility</span>
                                         </button>
+<<<<<<< HEAD
                                         
+=======
+                                        <button class="action-btn edit" title="Editar" onclick="editarAluno(<?php echo $index; ?>)">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button class="action-btn delete" title="Excluir" onclick="excluirAluno(<?php echo $index; ?>)">
+                                            <span class="material-symbols-outlined">delete</span>
+                                        </button>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     </div>
                                 </div>
                             </div>
@@ -824,6 +857,10 @@
                             <tr>
                                 <th>Aluno</th>
                                 <th>Turma</th>
+<<<<<<< HEAD
+=======
+                                <th>Status</th>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                 <th>Contato</th>
                                 <th>Data Nasc.</th>
                                 <th>Gênero</th>
@@ -835,6 +872,10 @@
                                 <?php foreach($estudantes as $index => $estudante): ?>
                                     <tr class="student-row" 
                                         data-nome="<?php echo htmlspecialchars(strtolower($estudante['fname'] . ' ' . $estudante['lname'])); ?>"
+<<<<<<< HEAD
+=======
+                                        data-status="<?php echo htmlspecialchars($estudante['status']); ?>"
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                         data-genero="<?php echo htmlspecialchars($estudante['genero']); ?>">
                                         <td>
                                             <div class="table-student-info">
@@ -849,6 +890,14 @@
                                         </td>
                                         <td>9º Ano A</td>
                                         <td>
+<<<<<<< HEAD
+=======
+                                            <span class="status-badge <?php echo $estudante['status'] == 'ativo' ? 'status-active' : 'status-inactive'; ?>">
+                                                <?php echo ucfirst($estudante['status']); ?>
+                                            </span>
+                                        </td>
+                                        <td>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                             <div><?php echo htmlspecialchars($estudante['telefone']); ?></div>
                                             <div style="font-size: 0.8rem; color: #666;"><?php echo htmlspecialchars($estudante['area']); ?></div>
                                         </td>
@@ -859,7 +908,16 @@
                                                 <button class="action-btn view" title="Ver detalhes" onclick="verDetalhes(<?php echo $index; ?>)">
                                                     <span class="material-symbols-outlined">visibility</span>
                                                 </button>
+<<<<<<< HEAD
                                                 
+=======
+                                                <button class="action-btn edit" title="Editar" onclick="editarAluno(<?php echo $index; ?>)">
+                                                    <span class="material-symbols-outlined">edit</span>
+                                                </button>
+                                                <button class="action-btn delete" title="Excluir" onclick="excluirAluno(<?php echo $index; ?>)">
+                                                    <span class="material-symbols-outlined">delete</span>
+                                                </button>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                             </div>
                                         </td>
                                     </tr>

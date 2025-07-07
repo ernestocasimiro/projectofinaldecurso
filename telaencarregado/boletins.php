@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 session_start();
 
 $sName = "localhost";
@@ -41,6 +42,51 @@ $trimestre = '2º trimestre';
 $anoLetivo = '2025';
 
 ?>
+=======
+        session_start();
+
+        $sName = "localhost";
+        $uNname = "root";
+        $pass = "";
+        $db_name = "escolabd";
+
+        try {
+            $conn = new PDO("mysql:host=$sName;dbname=$db_name", $uNname, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+            exit;
+        }
+
+        // Aqui pega o id do encarregado da sessão (a chave é 'id' conforme você mencionou)
+        $idGuardian = $_SESSION['id'] ?? null;
+
+        if (!$idGuardian) {
+            die("Encarregado não identificado.");
+        }
+
+        try {
+            $stmt = $conn->prepare("SELECT fname, lname FROM encarregados WHERE id = :id");
+            $stmt->bindParam(':id', $idGuardian, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $guardian = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$guardian) {
+                die("Encarregado não encontrado.");
+            }
+        } catch (PDOException $e) {
+            echo "Erro na consulta: " . $e->getMessage();
+            exit;
+        }
+
+        $dataAtual = '15 de Abril de 2025';
+        $trimestre = '2º trimestre';
+        $anoLetivo = '2025';
+
+?>
+
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -49,6 +95,7 @@ $anoLetivo = '2025';
     <title>Boletins - Dashboard Encarregados</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<<<<<<< HEAD
     <style>
         :root {
             --primary-color: #4361ee;
@@ -382,6 +429,771 @@ $anoLetivo = '2025';
         }
 
         /* Bulletins Grid */
+=======
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Menu -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Pitruca Camama</h2>
+                <span class="material-symbols-outlined menu-toggle" id="menuToggle">menu</span>
+            </div>
+            <div class="profile">
+                <div class="profile-info">
+                    <h3><span><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></span></h1></h3>
+                    <p>Encarregado/a de Educação</p>
+                </div>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="index.php">
+                            <span class="material-symbols-outlined">dashboard</span>
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="filhos.php">
+                            <span class="material-symbols-outlined">family_restroom</span>
+                            <span class="menu-text">Meus Filhos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="notas.php">
+                            <span class="material-symbols-outlined">grade</span>
+                            <span class="menu-text">Notas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="frequencia.php">
+                            <span class="material-symbols-outlined">fact_check</span>
+                            <span class="menu-text">Frequência</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="calendario.php">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            <span class="menu-text">Calendário</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="comunicados.php">
+                            <span class="material-symbols-outlined">campaign</span>
+                            <span class="menu-text">Comunicados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mensagens.php">
+                            <span class="material-symbols-outlined">chat</span>
+                            <span class="menu-text">Mensagens</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="boletins.php">
+                            <span class="material-symbols-outlined">description</span>
+                            <span class="menu-text">Boletins</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="configuracoes.php">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="menu-text">Configurações</span>
+                </a>
+                <a href="logout.php" class="logout">
+                    <span class="material-symbols-outlined">logout</span>
+                    <span class="menu-text">Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" placeholder="Pesquisar boletins...">
+                </div>
+                <div class="top-bar-actions">
+                    <span class="material-symbols-outlined notification">notifications</span>
+                    <span class="material-symbols-outlined">help</span>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="page-header">
+                    <h1>Boletins Escolares</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline">
+                            <span class="material-symbols-outlined">download</span>
+                            Baixar Todos
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label>Aluno:</label>
+                        <select class="filter-select">
+                            <option>Todos</option>
+                            <option>João Santos</option>
+                            <option>Ana Santos</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Ano Letivo:</label>
+                        <select class="filter-select">
+                            <option>2025</option>
+                            <option>2024</option>
+                            <option>2023</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Período:</label>
+                        <select class="filter-select">
+                            <option>Todos</option>
+                            <option>1º Trimestre</option>
+                            <option>2º Trimestre</option>
+                            <option>3º Trimestre</option>
+                            <option>Final</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Bulletins Grid -->
+                <div class="bulletins-grid">
+                    <div class="bulletin-card" data-student="joao" data-period="2025-2">
+                        <div class="bulletin-header">
+                            <div class="bulletin-icon">
+                                <span class="material-symbols-outlined">description</span>
+                            </div>
+                            <div class="bulletin-status available">
+                                <span class="material-symbols-outlined">check_circle</span>
+                                Disponível
+                            </div>
+                        </div>
+                        <div class="bulletin-info">
+                            <h3>João Santos - 2º Trimestre 2025</h3>
+                            <p>9º Ano A - Ensino Fundamental</p>
+                            <div class="bulletin-stats">
+                                <div class="stat">
+                                    <span class="label">Média Geral:</span>
+                                    <span class="value good">8.7</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Frequência:</span>
+                                    <span class="value excellent">96%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Situação:</span>
+                                    <span class="value approved">Aprovado</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bulletin-actions">
+                            <button class="btn-primary view-bulletin">
+                                <span class="material-symbols-outlined">visibility</span>
+                                Visualizar
+                            </button>
+                            <button class="btn-outline download-bulletin">
+                                <span class="material-symbols-outlined">download</span>
+                                Baixar PDF
+                            </button>
+                        </div>
+                        <div class="bulletin-date">
+                            Gerado em: 15/04/2025
+                        </div>
+                    </div>
+
+                    <div class="bulletin-card" data-student="ana" data-period="2025-2">
+                        <div class="bulletin-header">
+                            <div class="bulletin-icon">
+                                <span class="material-symbols-outlined">description</span>
+                            </div>
+                            <div class="bulletin-status available">
+                                <span class="material-symbols-outlined">check_circle</span>
+                                Disponível
+                            </div>
+                        </div>
+                        <div class="bulletin-info">
+                            <h3>Ana Santos - 2º Trimestre 2025</h3>
+                            <p>6º Ano B - Ensino Fundamental</p>
+                            <div class="bulletin-stats">
+                                <div class="stat">
+                                    <span class="label">Média Geral:</span>
+                                    <span class="value good">8.3</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Frequência:</span>
+                                    <span class="value good">94%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Situação:</span>
+                                    <span class="value approved">Aprovado</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bulletin-actions">
+                            <button class="btn-primary view-bulletin">
+                                <span class="material-symbols-outlined">visibility</span>
+                                Visualizar
+                            </button>
+                            <button class="btn-outline download-bulletin">
+                                <span class="material-symbols-outlined">download</span>
+                                Baixar PDF
+                            </button>
+                        </div>
+                        <div class="bulletin-date">
+                            Gerado em: 15/04/2025
+                        </div>
+                    </div>
+
+                    <div class="bulletin-card" data-student="joao" data-period="2025-1">
+                        <div class="bulletin-header">
+                            <div class="bulletin-icon">
+                                <span class="material-symbols-outlined">description</span>
+                            </div>
+                            <div class="bulletin-status available">
+                                <span class="material-symbols-outlined">check_circle</span>
+                                Disponível
+                            </div>
+                        </div>
+                        <div class="bulletin-info">
+                            <h3>João Santos - 1º Trimestre 2025</h3>
+                            <p>9º Ano A - Ensino Fundamental</p>
+                            <div class="bulletin-stats">
+                                <div class="stat">
+                                    <span class="label">Média Geral:</span>
+                                    <span class="value good">8.2</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Frequência:</span>
+                                    <span class="value excellent">98%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Situação:</span>
+                                    <span class="value approved">Aprovado</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bulletin-actions">
+                            <button class="btn-primary view-bulletin">
+                                <span class="material-symbols-outlined">visibility</span>
+                                Visualizar
+                            </button>
+                            <button class="btn-outline download-bulletin">
+                                <span class="material-symbols-outlined">download</span>
+                                Baixar PDF
+                            </button>
+                        </div>
+                        <div class="bulletin-date">
+                            Gerado em: 15/03/2025
+                        </div>
+                    </div>
+
+                    <div class="bulletin-card" data-student="ana" data-period="2025-1">
+                        <div class="bulletin-header">
+                            <div class="bulletin-icon">
+                                <span class="material-symbols-outlined">description</span>
+                            </div>
+                            <div class="bulletin-status available">
+                                <span class="material-symbols-outlined">check_circle</span>
+                                Disponível
+                            </div>
+                        </div>
+                        <div class="bulletin-info">
+                            <h3>Ana Santos - 1º Trimestre 2025</h3>
+                            <p>6º Ano B - Ensino Fundamental</p>
+                            <div class="bulletin-stats">
+                                <div class="stat">
+                                    <span class="label">Média Geral:</span>
+                                    <span class="value good">8.5</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Frequência:</span>
+                                    <span class="value good">92%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Situação:</span>
+                                    <span class="value approved">Aprovado</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bulletin-actions">
+                            <button class="btn-primary view-bulletin">
+                                <span class="material-symbols-outlined">visibility</span>
+                                Visualizar
+                            </button>
+                            <button class="btn-outline download-bulletin">
+                                <span class="material-symbols-outlined">download</span>
+                                Baixar PDF
+                            </button>
+                        </div>
+                        <div class="bulletin-date">
+                            Gerado em: 15/03/2025
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historical Performance -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Histórico de Desempenho</h2>
+                        <div class="chart-filters">
+                            <button class="btn-outline active">João Santos</button>
+                            <button class="btn-outline">Ana Santos</button>
+                        </div>
+                    </div>
+                    <div class="performance-chart">
+                        <div class="chart-placeholder">
+                            <span class="material-symbols-outlined">trending_up</span>
+                            <p>Gráfico de evolução das médias por trimestre</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Visualização do Boletim -->
+    <div class="modal" id="bulletinModal">
+        <div class="modal-content bulletin-modal">
+            <div class="modal-header">
+                <h3>Boletim Escolar</h3>
+                <span class="modal-close" id="closeBulletinModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="bulletin-document">
+                    <!-- Cabeçalho do Boletim -->
+                    <div class="bulletin-doc-header">
+                        <div class="school-info">
+                            <h2>Escola Pitruca</h2>
+                            <p>Rua da Educação, 123 camama, luanda</p>
+                            <p>Tel: (244) 912345678| email@pitruca.com</p>
+                        </div>
+                        <div class="bulletin-title">
+                            <h1>BOLETIM ESCOLAR</h1>
+                            <p id="bulletinPeriod">2º Trimestre - 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Informações do Aluno -->
+                    <div class="student-info-section">
+                        <div class="info-row">
+                            <div class="info-item">
+                                <strong>Nome:</strong> <span id="studentName">João Santos</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Matrícula:</strong> <span id="studentId">2025001234</span>
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-item">
+                                <strong>Turma:</strong> <span id="studentClass">9º Ano A</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Ano Letivo:</strong> <span id="schoolYear">2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabela de Notas -->
+                    <div class="grades-section">
+                        <h3>Desempenho Acadêmico</h3>
+                        <table class="bulletin-table">
+                            <thead>
+                                <tr>
+                                    <th>Disciplina</th>
+                                    <th>Professor</th>
+                                    <th>1ª Aval.</th>
+                                    <th>2ª Aval.</th>
+                                    <th>Trabalhos</th>
+                                    <th>Média</th>
+                                    <th>Faltas</th>
+                                    <th>Situação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gradesTableBody">
+                                <!-- Dados serão inseridos dinamicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Resumo -->
+                    <div class="bulletin-summary">
+                        <div class="summary-item">
+                            <strong>Média Geral:</strong> <span id="overallAverage">8.7</span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Total de Faltas:</strong> <span id="totalAbsences">3</span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Frequência:</strong> <span id="attendanceRate">96%</span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Situação Final:</strong> <span id="finalStatus" class="status-approved">APROVADO</span>
+                        </div>
+                    </div>
+
+                    <!-- Observações -->
+                    <div class="observations-section">
+                        <h3>Observações</h3>
+                        <div class="observation-item">
+                            <strong>Coordenação Pedagógica:</strong>
+                            <p>O aluno demonstra excelente desempenho acadêmico e participação ativa nas atividades escolares. Continue assim!</p>
+                        </div>
+                    </div>
+
+                    <!-- Assinaturas -->
+                    <div class="signatures-section">
+                        <div class="signature-item">
+                            <div class="signature-line"></div>
+                            <p>Coordenação Pedagógica</p>
+                        </div>
+                        <div class="signature-item">
+                            <div class="signature-line"></div>
+                            <p>Direção</p>
+                        </div>
+                    </div>
+
+                    <!-- Data de Emissão -->
+                    <div class="issue-date">
+                        <p>luanda, <span id="issueDate">15 de Abril de 2025</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="downloadBulletinBtn">
+                    <span class="material-symbols-outlined">download</span>
+                    Baixar PDF
+                </button>
+                <button class="btn-outline" id="printBulletinBtn">
+                    <span class="material-symbols-outlined">print</span>
+                    Imprimir
+                </button>
+                <button class="btn-outline" id="closeBulletinBtn">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Download -->
+    <div class="modal" id="downloadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Download do Boletim</h3>
+                <span class="modal-close" id="closeDownloadModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="download-options">
+                    <div class="download-option" data-type="pdf">
+                        <div class="option-icon">
+                            <span class="material-symbols-outlined">picture_as_pdf</span>
+                        </div>
+                        <div class="option-info">
+                            <h4>PDF Completo</h4>
+                            <p>Boletim completo com todas as informações e formatação oficial</p>
+                        </div>
+                        <button class="btn-primary">
+                            <span class="material-symbols-outlined">download</span>
+                            Baixar
+                        </button>
+                    </div>
+                    <div class="download-option" data-type="excel">
+                        <div class="option-icon">
+                            <span class="material-symbols-outlined">table_chart</span>
+                        </div>
+                        <div class="option-info">
+                            <h4>Planilha Excel</h4>
+                            <p>Dados das notas em formato de planilha para análise</p>
+                        </div>
+                        <button class="btn-outline">
+                            <span class="material-symbols-outlined">download</span>
+                            Baixar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" id="cancelDownloadBtn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Modal -->
+    <div class="modal" id="progressModal">
+        <div class="modal-content progress-modal">
+            <div class="modal-body">
+                <div class="progress-content">
+                    <div class="progress-icon">
+                        <span class="material-symbols-outlined rotating">download</span>
+                    </div>
+                    <h3 id="progressTitle">Preparando download...</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="progressText">0%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.content').classList.toggle('expanded');
+        });
+
+        // Dados dos boletins
+        const bulletinData = {
+            'joao-2025-2': {
+                student: {
+                    name: 'João Santos',
+                    id: '2025001234',
+                    class: '9º Ano A - Ensino Fundamental',
+                    year: '2025'
+                },
+                period: '2º Trimestre - 2025',
+                grades: [
+                    { subject: 'Matemática', teacher: 'Prof. Carlos Silva', eval1: 9.0, eval2: 8.5, work: 9.2, average: 8.9, absences: 0, status: 'Aprovado' },
+                    { subject: 'Português', teacher: 'Prof. Ana Maria', eval1: 8.0, eval2: 9.0, work: 8.5, average: 8.5, absences: 1, status: 'Aprovado' },
+                    { subject: 'Física', teacher: 'Prof. Roberto Lima', eval1: 7.0, eval2: 7.5, work: 7.0, average: 7.2, absences: 2, status: 'Recuperação' },
+                    { subject: 'História', teacher: 'Prof. Lucia Santos', eval1: 8.5, eval2: 9.0, work: 8.0, average: 8.5, absences: 0, status: 'Aprovado' }
+                ],
+                summary: {
+                    overallAverage: 8.7,
+                    totalAbsences: 3,
+                    attendanceRate: '96%',
+                    finalStatus: 'APROVADO'
+                },
+                issueDate: '15 de Abril de 2025'
+            },
+            'ana-2025-2': {
+                student: {
+                    name: 'Ana Santos',
+                    id: '2025001235',
+                    class: '6º Ano B - Ensino Fundamental',
+                    year: '2025'
+                },
+                period: '2º Trimestre - 2025',
+                grades: [
+                    { subject: 'Matemática', teacher: 'Prof. Pedro Costa', eval1: 8.0, eval2: 7.5, work: 8.0, average: 7.8, absences: 1, status: 'Aprovado' },
+                    { subject: 'Português', teacher: 'Prof. Fernanda Silva', eval1: 9.0, eval2: 9.5, work: 9.0, average: 9.2, absences: 0, status: 'Aprovado' },
+                    { subject: 'Inglês', teacher: 'Prof. Michael Johnson', eval1: 8.0, eval2: 8.0, work: 8.0, average: 8.0, absences: 0, status: 'Aprovado' }
+                ],
+                summary: {
+                    overallAverage: 8.3,
+                    totalAbsences: 2,
+                    attendanceRate: '94%',
+                    finalStatus: 'APROVADO'
+                },
+                issueDate: '15 de Abril de 2025'
+            }
+        };
+
+        // Função para visualizar boletim
+        function viewBulletin(student, period) {
+            const bulletinKey = `${student}-${period}`;
+            const data = bulletinData[bulletinKey];
+            
+            if (!data) {
+                alert('Boletim não encontrado!');
+                return;
+            }
+            
+            // Preencher dados do estudante
+            document.getElementById('studentName').textContent = data.student.name;
+            document.getElementById('studentId').textContent = data.student.id;
+            document.getElementById('studentClass').textContent = data.student.class;
+            document.getElementById('schoolYear').textContent = data.student.year;
+            document.getElementById('bulletinPeriod').textContent = data.period;
+            
+            // Preencher tabela de notas
+            const tbody = document.getElementById('gradesTableBody');
+            tbody.innerHTML = '';
+            
+            data.grades.forEach(grade => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${grade.subject}</td>
+                    <td>${grade.teacher}</td>
+                    <td>${grade.eval1.toFixed(1)}</td>
+                    <td>${grade.eval2.toFixed(1)}</td>
+                    <td>${grade.work.toFixed(1)}</td>
+                    <td class="grade-average ${getGradeClass(grade.average)}">${grade.average.toFixed(1)}</td>
+                    <td>${grade.absences}</td>
+                    <td><span class="status-badge ${grade.status === 'Aprovado' ? 'approved' : 'recovery'}">${grade.status}</span></td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            // Preencher resumo
+            document.getElementById('overallAverage').textContent = data.summary.overallAverage.toFixed(1);
+            document.getElementById('totalAbsences').textContent = data.summary.totalAbsences;
+            document.getElementById('attendanceRate').textContent = data.summary.attendanceRate;
+            document.getElementById('finalStatus').textContent = data.summary.finalStatus;
+            document.getElementById('issueDate').textContent = data.issueDate;
+            
+            // Mostrar modal
+            document.getElementById('bulletinModal').style.display = 'flex';
+        }
+
+        // Função para obter classe CSS da nota
+        function getGradeClass(grade) {
+            if (grade >= 9) return 'excellent';
+            if (grade >= 8) return 'good';
+            if (grade >= 7) return 'average';
+            return 'poor';
+        }
+
+        // Função para simular download
+        function simulateDownload(fileName, fileType) {
+            document.getElementById('downloadModal').style.display = 'none';
+            document.getElementById('progressModal').style.display = 'flex';
+            
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            const progressTitle = document.getElementById('progressTitle');
+            
+            progressTitle.textContent = `Gerando arquivo ${fileType}...`;
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                
+                progressFill.style.width = progress + '%';
+                progressText.textContent = Math.round(progress) + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        document.getElementById('progressModal').style.display = 'none';
+                        showDownloadSuccess(fileName);
+                        createDownloadLink(fileName);
+                    }, 500);
+                }
+            }, 200);
+        }
+
+        // Função para mostrar sucesso do download
+        function showDownloadSuccess(fileName) {
+            const notification = document.createElement('div');
+            notification.className = 'download-notification';
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <div>
+                        <h4>Download concluído!</h4>
+                        <p>${fileName} foi baixado com sucesso</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Função para criar link de download
+        function createDownloadLink(fileName) {
+            const content = `Conteúdo do arquivo ${fileName}`;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Botões de visualizar
+            document.querySelectorAll('.view-bulletin').forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.bulletin-card');
+                    const student = card.dataset.student;
+                    const period = card.dataset.period;
+                    viewBulletin(student, period);
+                });
+            });
+
+            // Botões de download direto
+            document.querySelectorAll('.download-bulletin').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.getElementById('downloadModal').style.display = 'flex';
+                });
+            });
+
+            // Fechar modais
+            document.getElementById('closeBulletinModal').addEventListener('click', function() {
+                document.getElementById('bulletinModal').style.display = 'none';
+            });
+
+            document.getElementById('closeBulletinBtn').addEventListener('click', function() {
+                document.getElementById('bulletinModal').style.display = 'none';
+            });
+
+            document.getElementById('closeDownloadModal').addEventListener('click', function() {
+                document.getElementById('downloadModal').style.display = 'none';
+            });
+
+            document.getElementById('cancelDownloadBtn').addEventListener('click', function() {
+                document.getElementById('downloadModal').style.display = 'none';
+            });
+
+            // Download do modal do boletim
+            document.getElementById('downloadBulletinBtn').addEventListener('click', function() {
+                document.getElementById('downloadModal').style.display = 'flex';
+            });
+
+            // Imprimir boletim
+            document.getElementById('printBulletinBtn').addEventListener('click', function() {
+                window.print();
+            });
+
+            // Opções de download
+            document.querySelectorAll('.download-option button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const option = this.closest('.download-option');
+                    const type = option.dataset.type;
+                    
+                    if (type === 'pdf') {
+                        simulateDownload('boletim-completo.pdf', 'PDF');
+                    } else if (type === 'excel') {
+                        simulateDownload('notas.xlsx', 'Excel');
+                    }
+                });
+            });
+
+            // Chart filters
+            document.querySelectorAll('.chart-filters button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.chart-filters button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Estilos específicos para boletins */
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         .bulletins-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -395,7 +1207,10 @@ $anoLetivo = '2025';
             box-shadow: var(--card-shadow);
             padding: 20px;
             transition: all 0.2s ease;
+<<<<<<< HEAD
             overflow: hidden;
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .bulletin-card:hover {
@@ -443,13 +1258,19 @@ $anoLetivo = '2025';
         .bulletin-info h3 {
             margin-bottom: 5px;
             font-size: 1.1rem;
+<<<<<<< HEAD
             word-break: break-word;
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .bulletin-info p {
             color: var(--text-light);
             margin-bottom: 15px;
+<<<<<<< HEAD
             word-break: break-word;
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .bulletin-stats {
@@ -483,7 +1304,11 @@ $anoLetivo = '2025';
 
         .bulletin-stats .value.good {
             background-color: rgba(33, 150, 243, 0.1);
+<<<<<<< HEAD
             color: var(--primary-color);
+=======
+            color: var(--info-color);
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .bulletin-stats .value.approved {
@@ -509,6 +1334,7 @@ $anoLetivo = '2025';
             border-top: 1px solid var(--border-color);
         }
 
+<<<<<<< HEAD
         /* Performance Chart */
         .dashboard-card {
             background-color: white;
@@ -546,12 +1372,15 @@ $anoLetivo = '2025';
             border-color: var(--primary-color);
         }
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         .performance-chart {
             padding: 20px;
             height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
+<<<<<<< HEAD
             background-color: var(--gray-100);
             border-radius: 8px;
         }
@@ -565,6 +1394,8 @@ $anoLetivo = '2025';
             font-size: 48px;
             color: var(--primary-color);
             margin-bottom: 10px;
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         /* Modal styles */
@@ -585,11 +1416,23 @@ $anoLetivo = '2025';
             background-color: white;
             border-radius: 10px;
             width: 90%;
+<<<<<<< HEAD
             max-width: 800px;
+=======
+            max-width: 500px;
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             max-height: 90vh;
             overflow-y: auto;
         }
 
+<<<<<<< HEAD
+=======
+        .bulletin-modal {
+            max-width: 900px;
+            width: 95%;
+        }
+
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -598,20 +1441,26 @@ $anoLetivo = '2025';
             border-bottom: 1px solid var(--border-color);
         }
 
+<<<<<<< HEAD
         .modal-header h3 {
             font-size: 1.2rem;
             font-weight: 600;
         }
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         .modal-close {
             font-size: 24px;
             cursor: pointer;
             color: var(--text-light);
+<<<<<<< HEAD
             transition: all 0.2s;
         }
 
         .modal-close:hover {
             color: var(--danger-color);
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .modal-body {
@@ -649,7 +1498,10 @@ $anoLetivo = '2025';
         .school-info p {
             margin: 5px 0;
             color: #666;
+<<<<<<< HEAD
             font-size: 0.9rem;
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .bulletin-title h1 {
@@ -658,11 +1510,14 @@ $anoLetivo = '2025';
             font-size: 1.8rem;
         }
 
+<<<<<<< HEAD
         #bulletinPeriod {
             font-weight: bold;
             color: #333;
         }
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         .student-info-section {
             margin: 20px 0;
             background-color: #f9f9f9;
@@ -680,10 +1535,13 @@ $anoLetivo = '2025';
             flex: 1;
         }
 
+<<<<<<< HEAD
         .info-item strong {
             color: #333;
         }
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         .grades-section {
             margin: 30px 0;
         }
@@ -691,7 +1549,10 @@ $anoLetivo = '2025';
         .grades-section h3 {
             margin-bottom: 15px;
             color: #333;
+<<<<<<< HEAD
             font-size: 1.1rem;
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .bulletin-table {
@@ -713,6 +1574,7 @@ $anoLetivo = '2025';
             font-weight: bold;
         }
 
+<<<<<<< HEAD
         .grade-average {
             font-weight: bold;
         }
@@ -720,16 +1582,28 @@ $anoLetivo = '2025';
         .grade-average.excellent {
             background-color: rgba(76, 175, 80, 0.1);
             color: var(--success-color);
+=======
+        .grade-average.excellent {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--success-color);
+            font-weight: bold;
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .grade-average.good {
             background-color: rgba(33, 150, 243, 0.1);
+<<<<<<< HEAD
             color: var(--primary-color);
+=======
+            color: var(--info-color);
+            font-weight: bold;
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .grade-average.average {
             background-color: rgba(255, 152, 0, 0.1);
             color: var(--warning-color);
+<<<<<<< HEAD
         }
 
         .status-badge {
@@ -737,16 +1611,31 @@ $anoLetivo = '2025';
             border-radius: 12px;
             font-size: 0.8rem;
             font-weight: 500;
+=======
+            font-weight: bold;
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .status-badge.approved {
             background-color: rgba(76, 175, 80, 0.1);
             color: var(--success-color);
+<<<<<<< HEAD
+=======
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .status-badge.recovery {
             background-color: rgba(255, 152, 0, 0.1);
             color: var(--warning-color);
+<<<<<<< HEAD
+=======
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         .bulletin-summary {
@@ -781,6 +1670,7 @@ $anoLetivo = '2025';
             border-radius: 5px;
         }
 
+<<<<<<< HEAD
         .observation-item strong {
             color: #333;
         }
@@ -789,6 +1679,8 @@ $anoLetivo = '2025';
             margin: 5px 0 0 0;
         }
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         .signatures-section {
             margin-top: 50px;
             display: flex;
@@ -949,6 +1841,7 @@ $anoLetivo = '2025';
             margin: 0;
         }
 
+<<<<<<< HEAD
         /* Responsive Styles */
         @media (max-width: 992px) {
             .filter-container {
@@ -1030,6 +1923,9 @@ $anoLetivo = '2025';
                 gap: 15px;
             }
 
+=======
+        @media (max-width: 768px) {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             .bulletins-grid {
                 grid-template-columns: 1fr;
             }
@@ -1038,6 +1934,7 @@ $anoLetivo = '2025';
                 flex-direction: column;
             }
 
+<<<<<<< HEAD
             .card-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -1074,6 +1971,17 @@ $anoLetivo = '2025';
                 width: 150px;
             }
 
+=======
+            .bulletin-modal {
+                width: 98%;
+                max-height: 95vh;
+            }
+            
+            .bulletin-document {
+                padding: 15px;
+            }
+            
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             .bulletin-table {
                 font-size: 0.8rem;
             }
@@ -1087,6 +1995,7 @@ $anoLetivo = '2025';
                 flex-direction: column;
                 gap: 10px;
             }
+<<<<<<< HEAD
         }
     </style>
 </head>
@@ -1715,3 +2624,28 @@ $anoLetivo = '2025';
     </script>
 </body>
 </html>
+=======
+            
+            .bulletin-summary {
+                grid-template-columns: 1fr;
+            }
+            
+            .signatures-section {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .download-option {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .option-info {
+                margin-right: 0;
+            }
+        }
+    </style>
+</body>
+</html>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31

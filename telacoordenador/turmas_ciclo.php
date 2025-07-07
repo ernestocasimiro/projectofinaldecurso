@@ -591,7 +591,11 @@ if ($classeSelecionada) {
                                         <i class="fas fa-user-plus"></i> Adicionar Alunos
                                     </button>
                                 <?php endif; ?>
+<<<<<<< HEAD
                                 <a href="turma_detalhes.php?id=<?php echo $turma['id']; ?>" class="btn" onclick="event.stopPropagation(); return verificarTurmaExistente('<?php echo $turma['id']; ?>')">
+=======
+                                <a href="turma_detalhes.php?id=<?php echo $turma['id']; ?>" class="btn" onclick="event.stopPropagation()">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <i class="fas fa-eye"></i> Ver Detalhes
                                 </a>
                             </div>
@@ -649,6 +653,7 @@ if ($classeSelecionada) {
         }
         
         function openTurmaDetails(id) {
+<<<<<<< HEAD
             // Verifica se a turma existe antes de redirecionar
             verificarTurmaExistente(id);
         }
@@ -670,6 +675,9 @@ if ($classeSelecionada) {
             
             // Retorna false para prevenir o comportamento padrão do link
             return false;
+=======
+            window.location.href = 'turma_detalhes.php?id=' + id;
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
         
         window.onclick = function(event) {

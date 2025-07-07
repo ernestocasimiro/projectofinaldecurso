@@ -53,6 +53,7 @@ $dataAtual = '15 de Abril de 2025';
 $trimestre = '2º trimestre';
 $anoLetivo = '2025';
 
+<<<<<<< HEAD
 // Processar exportação de boletim
 if (isset($_POST['export_boletim'])) {
     $studentId = $_POST['student_id'];
@@ -272,6 +273,8 @@ if (isset($_POST['export_boletim'])) {
         exit;
     }
 }
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -281,6 +284,7 @@ if (isset($_POST['export_boletim'])) {
     <title>Notas - Dashboard Encarregados</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<<<<<<< HEAD
     <style>
         :root {
             --primary-color: #4361ee;
@@ -955,6 +959,8 @@ if (isset($_POST['export_boletim'])) {
             }
         }
     </style>
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 </head>
 <body>
     <div class="container">
@@ -964,6 +970,7 @@ if (isset($_POST['export_boletim'])) {
                 <h2>Pitruca Camama</h2>
             </div>
             <div class="profile">
+<<<<<<< HEAD
                 <div class="profile-avatar">
                     <?php 
                         $names = explode(' ', $guardian['fname']);
@@ -973,6 +980,10 @@ if (isset($_POST['export_boletim'])) {
                 </div>
                 <div class="profile-info">
                     <h3><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></h3>
+=======
+                <div class="profile-info">
+                    <h3><span><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></span></h1></h3>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <p>Encarregado/a de Educação</p>
                 </div>
             </div>
@@ -1026,15 +1037,25 @@ if (isset($_POST['export_boletim'])) {
                             <span class="menu-text">Boletins</span>
                         </a>
                     </li>
+<<<<<<< HEAD
                 </ul>
             </nav>
             <div class="sidebar-footer">
                 <!--
+=======
+                 
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="configuracoes.php">
                     <span class="material-symbols-outlined">settings</span>
                     <span class="menu-text">Configurações</span>
                 </a>
+<<<<<<< HEAD
     -->
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>
@@ -1059,13 +1080,18 @@ if (isset($_POST['export_boletim'])) {
                 <div class="page-header">
                     <h1>Notas</h1>
                     <div class="header-actions">
+<<<<<<< HEAD
                         <button class="btn-outline" id="exportBtn">
+=======
+                        <button class="btn-outline">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                             <span class="material-symbols-outlined">download</span>
                             Exportar Boletim
                         </button>
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <!-- Modal para seleção do estudante -->
                 <div id="exportModal" class="modal">
                     <div class="modal-content">
@@ -1092,6 +1118,8 @@ if (isset($_POST['export_boletim'])) {
                     </div>
                 </div>
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <!-- Filters -->
                 <div class="filter-container">
                     <div class="filter-group">
@@ -1159,7 +1187,12 @@ if (isset($_POST['export_boletim'])) {
                                     <td><span class="grade excellent">9.0</span></td>
                                     <td><span class="grade good">8.5</span></td>
                                     <td><span class="grade excellent">9.2</span></td>
+<<<<<<< HEAD
                                     <td><span class="grade excellent">8.9</span></td>                                  <td><span class="status-badge active">Aprovado</span></td>
+=======
+                                    <td><span class="grade excellent">8.9</span></td>
+                                    <td><span class="status-badge active">Aprovado</span></td>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                 </tr>
                                 <tr>
                                     <td>
@@ -1168,7 +1201,11 @@ if (isset($_POST['export_boletim'])) {
                                             <span>Português</span>
                                         </div>
                                     </td>
+<<<<<<< HEAD
                                     <td>Prof. Ana Santos</td>
+=======
+                                    <td>Prof. Ana Maria</td>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <td><span class="grade good">8.0</span></td>
                                     <td><span class="grade excellent">9.0</span></td>
                                     <td><span class="grade good">8.5</span></td>
@@ -1182,7 +1219,11 @@ if (isset($_POST['export_boletim'])) {
                                             <span>Física</span>
                                         </div>
                                     </td>
+<<<<<<< HEAD
                                     <td>Prof. João Pereira</td>
+=======
+                                    <td>Prof. Roberto Lima</td>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <td><span class="grade average">7.0</span></td>
                                     <td><span class="grade average">7.5</span></td>
                                     <td><span class="grade average">7.0</span></td>
@@ -1192,6 +1233,7 @@ if (isset($_POST['export_boletim'])) {
                                 <tr>
                                     <td>
                                         <div class="subject-info">
+<<<<<<< HEAD
                                             <span class="material-symbols-outlined">history</span>
                                             <span>História</span>
                                         </div>
@@ -1201,6 +1243,17 @@ if (isset($_POST['export_boletim'])) {
                                     <td><span class="grade excellent">9.0</span></td>
                                     <td><span class="grade good">8.0</span></td>
                                     <td><span class="grade excellent">8.5</span></td>
+=======
+                                            <span class="material-symbols-outlined">history_edu</span>
+                                            <span>História</span>
+                                        </div>
+                                    </td>
+                                    <td>Prof. Lucia Santos</td>
+                                    <td><span class="grade good">8.5</span></td>
+                                    <td><span class="grade excellent">9.0</span></td>
+                                    <td><span class="grade good">8.0</span></td>
+                                    <td><span class="grade good">8.5</span></td>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <td><span class="status-badge active">Aprovado</span></td>
                                 </tr>
                             </tbody>
@@ -1214,7 +1267,11 @@ if (isset($_POST['export_boletim'])) {
                         <div class="student-info">
                             <div>
                                 <h2>Kelton Gonçalves</h2>
+<<<<<<< HEAD
                                 <p>7º Ano B - Ensino Fundamental</p>
+=======
+                                <p>6º Ano B - Ensino Fundamental</p>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                 <span class="average-badge good">Média Geral: 8.3</span>
                             </div>
                         </div>
@@ -1241,11 +1298,19 @@ if (isset($_POST['export_boletim'])) {
                                             <span>Matemática</span>
                                         </div>
                                     </td>
+<<<<<<< HEAD
                                     <td>Prof. Carlos Silva</td>
                                     <td><span class="grade good">8.0</span></td>
                                     <td><span class="grade average">7.5</span></td>
                                     <td><span class="grade good">8.0</span></td>
                                     <td><span class="grade good">7.8</span></td>
+=======
+                                    <td>Prof. Pedro Costa</td>
+                                    <td><span class="grade good">8.0</span></td>
+                                    <td><span class="grade average">7.5</span></td>
+                                    <td><span class="grade good">8.0</span></td>
+                                    <td><span class="grade average">7.8</span></td>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <td><span class="status-badge active">Aprovado</span></td>
                                 </tr>
                                 <tr>
@@ -1255,7 +1320,11 @@ if (isset($_POST['export_boletim'])) {
                                             <span>Português</span>
                                         </div>
                                     </td>
+<<<<<<< HEAD
                                     <td>Prof. Ana Santos</td>
+=======
+                                    <td>Prof. Fernanda Silva</td>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <td><span class="grade excellent">9.0</span></td>
                                     <td><span class="grade excellent">9.5</span></td>
                                     <td><span class="grade excellent">9.0</span></td>
@@ -1265,11 +1334,19 @@ if (isset($_POST['export_boletim'])) {
                                 <tr>
                                     <td>
                                         <div class="subject-info">
+<<<<<<< HEAD
                                             <span class="material-symbols-outlined">translate</span>
                                             <span>Inglês</span>
                                         </div>
                                     </td>
                                     <td>Prof. Luísa Mendes</td>
+=======
+                                            <span class="material-symbols-outlined">language</span>
+                                            <span>Inglês</span>
+                                        </div>
+                                    </td>
+                                    <td>Prof. Michael Johnson</td>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <td><span class="grade good">8.0</span></td>
                                     <td><span class="grade good">8.0</span></td>
                                     <td><span class="grade good">8.0</span></td>
@@ -1280,11 +1357,32 @@ if (isset($_POST['export_boletim'])) {
                         </table>
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+
+                <!-- Performance Chart -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Evolução das Notas</h2>
+                        <div class="chart-filters">
+                            <button class="btn-outline active">Trimestre</button>
+                            <button class="btn-outline">Ano</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-placeholder">
+                            <span class="material-symbols-outlined">trending_up</span>
+                            <p>Gráfico de evolução das notas por trimestre</p>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             </div>
         </main>
     </div>
 
     <script>
+<<<<<<< HEAD
         // Modal functionality
         const exportBtn = document.getElementById('exportBtn');
         const modal = document.getElementById('exportModal');
@@ -1322,6 +1420,28 @@ if (isset($_POST['export_boletim'])) {
                 document.getElementById('joao-grades').style.display = 'none';
                 document.getElementById('ana-grades').style.display = 'none';
                 document.getElementById(`${value}-grades`).style.display = 'block';
+=======
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.content').classList.toggle('expanded');
+        });
+
+        // Filter functionality
+        document.getElementById('studentFilter').addEventListener('change', function() {
+            const value = this.value;
+            const joaoGrades = document.getElementById('joao-grades');
+            const anaGrades = document.getElementById('ana-grades');
+            
+            if (value === 'all') {
+                joaoGrades.style.display = 'block';
+                anaGrades.style.display = 'block';
+            } else if (value === 'joao') {
+                joaoGrades.style.display = 'block';
+                anaGrades.style.display = 'none';
+            } else if (value === 'ana') {
+                joaoGrades.style.display = 'none';
+                anaGrades.style.display = 'block';
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             }
         });
     </script>

@@ -729,12 +729,20 @@ echo '<script type="text/javascript">
             </li>
             
             
+<<<<<<< HEAD
             <!-- Configurações 
+=======
+            <!-- Configurações -->
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             <li data-tab="settings" class="<?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'active' : ''; ?>">
                 <a href="settings.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'current' : ''; ?>">
                     <i class="fas fa-cog"></i> 
                     <span>Configurações</span>
+<<<<<<< HEAD
                 </a>-->
+=======
+                </a>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             </li>
             <a href="/dashboardpitruca/login/logout.php" class="fixed-logout-btn" title="Sair do Sistema">
                 <i class="fas fa-sign-out-alt"></i>
@@ -752,6 +760,10 @@ echo '<script type="text/javascript">
             </div>
             <div class="user-info">
                 <div class="user user-dropdown">
+<<<<<<< HEAD
+=======
+                    <img src="login/images/semft-removebg-preview.png" alt="" class="userOptions__avatar img-circle" width="42" height="42">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <span><?php echo $_SESSION['fname']; ?></span>
                 </div>
             </div>

@@ -792,12 +792,15 @@ $anoLetivo = date('Y');
                             <span class="menu-text">Alunos</span>
                         </a>
                     </li>
+<<<<<<< HEAD
                     <li>
                         <a href="professores.php">
                             <span class="material-symbols-outlined">group</span>
                             <span class="menu-text">Professores</span>
                         </a>
                     </li>
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <li class="active">
                         <a href="turmas.php">
                             <span class="material-symbols-outlined">school</span>
@@ -849,12 +852,18 @@ $anoLetivo = date('Y');
                 </ul>
             </nav>
             <div class="sidebar-footer">
+<<<<<<< HEAD
                 <!--
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="configuracoes.php">
                     <span class="material-symbols-outlined">settings</span>
                     <span class="menu-text">Configurações</span>
                 </a>
+<<<<<<< HEAD
     -->
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>

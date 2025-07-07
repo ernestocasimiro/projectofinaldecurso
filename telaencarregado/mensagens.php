@@ -862,6 +862,7 @@ $anoLetivo = date('Y');
     <div class="container">
         <!-- Sidebar Menu -->
         <aside class="sidebar">
+<<<<<<< HEAD
              <style>
                     .sidebar-header {
                         display: flex;
@@ -879,6 +880,11 @@ $anoLetivo = date('Y');
                 <div class="sidebar-header">
                     <h2>Pitruca Camama</h2>
                 </div>
+=======
+            <div class="sidebar-header">
+                <h2>Pitruca Camama</h2>
+            </div>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             <div class="profile">
                 <div class="profile-avatar">
                     <?php 
@@ -945,12 +951,18 @@ $anoLetivo = date('Y');
                 </ul>
             </nav>
             <div class="sidebar-footer">
+<<<<<<< HEAD
                 <!--
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="configuracoes.php">
                     <span class="material-symbols-outlined">settings</span>
                     <span class="menu-text">Configurações</span>
                 </a>
+<<<<<<< HEAD
                 -->
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>

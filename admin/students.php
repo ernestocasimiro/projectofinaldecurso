@@ -1127,12 +1127,20 @@ if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
             </li>
             
             
+<<<<<<< HEAD
             <!-- Configurações 
+=======
+            <!-- Configurações -->
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             <li data-tab="settings" class="<?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'active' : ''; ?>">
                 <a href="settings.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'settings.php' ? 'current' : ''; ?>">
                     <i class="fas fa-cog"></i> 
                     <span>Configurações</span>
+<<<<<<< HEAD
                 </a>-->
+=======
+                </a>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             </li>
 
              <a href="/dashboardpitruca/login/logout.php" class="fixed-logout-btn" title="Sair do Sistema">
@@ -1222,6 +1230,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
                 <th>Turma</th>
                 <th>Contato</th>
                 <th>Encarregado</th>
+<<<<<<< HEAD
+=======
+                <th>Estado</th>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <th>Ações</th>
             </tr>
         </thead>
@@ -1234,7 +1246,17 @@ if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
                         <td><?= htmlspecialchars($aluno['class_name']) ?></td>
                         <td><?= htmlspecialchars($aluno['telefone']) ?></td>
                         <td><?= htmlspecialchars($aluno['encarregado_fname'] . ' ' . $aluno['encarregado_lname']) ?></td>
+<<<<<<< HEAD
                        
+=======
+                        <td>
+                            <?php
+                                $statusClass = $aluno['status'] === 'ativo' ? 'status-active' : 'status-inactive';
+                                $statusText = ucfirst($aluno['status']);
+                            ?>
+                            <span class="status-badge <?= $statusClass ?>"><?= $statusText ?></span>
+                        </td>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                         <td>
                              <div class="action-buttons">
                           <button class="view-btn" data-id="<?= $g['id']; ?>" onclick="window.location.href='view_student.php?id=<?= $g['id']; ?>'">
@@ -1365,6 +1387,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
                                 </select>
                             </div>
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label for="area">Área*</label>
                                 <select id="area" name="area" required>
                                     <option value="">Selecione uma área</option>
@@ -1378,11 +1401,17 @@ if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
 
                         <div class="form-row">
                             <div class="form-group">
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                 <label for="status">Estado*</label>
                                 <select id="status" name="status" required>
                                     <option value="active">Ativo</option>
                                     <option value="inactive">Inativo</option>
+<<<<<<< HEAD
                                     <option value="pending" selected>Pendente</option>
+=======
+                                    <option value="pending">Pendente</option>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                 </select>
                             </div>
                         </div>
@@ -1446,28 +1475,43 @@ if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
 <!-- Modal para visualizar estudante -->
 <div class="modal" id="view-student-modal">
     <div class="modal-content">
+<<<<<<< HEAD
         
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         <div class="modal-header">
             <h3>Detalhes do Aluno</h3>
             <span class="close-modal">&times;</span>
         </div>
+<<<<<<< HEAD
         
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         <div class="modal-body">
             <div id="student-details">
                 <!-- Detalhes do aluno serão carregados via JavaScript -->
             </div>
+<<<<<<< HEAD
             
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             <div class="form-buttons">
                 <button class="btn-reset close-view-btn">
                     <i class="fas fa-times"></i> Fechar
                 </button>
             </div>
         </div>
+<<<<<<< HEAD
         
     </div>
 </div>
 
 
+=======
+    </div>
+</div>
+
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Dropdown do usuário
@@ -1673,6 +1717,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+<<<<<<< HEAD
    // Função para visualizar detalhes do estudante
 function viewStudent(id) {
     // Exemplo de resposta simulada (mock) - substituir futuramente por chamada AJAX
@@ -1734,6 +1779,62 @@ function viewStudent(id) {
     document.getElementById('view-student-modal').style.display = 'flex';
 }
 
+=======
+    // Função para visualizar estudante
+    function viewStudent(id) {
+        // Aqui você faria uma requisição AJAX para obter os detalhes do estudante
+        // Por enquanto, vamos simular com dados estáticos
+        
+        const studentDetails = `
+            <div class="student-profile">
+                <div class="student-header">
+                    <div class="student-avatar">
+                        <img src="uploads/students/default-avatar.jpg" alt="Foto do Aluno">
+                    </div>
+                    <div class="student-basic-info">
+                        <h2>João Silva</h2>
+                        <p><strong>ID:</strong> ${id}</p>
+                        <p><strong>Turma:</strong> 1º Ano - Turma A</p>
+                        <p><strong>Status:</strong> <span class="status-badge status-active">Ativo</span></p>
+                    </div>
+                </div>
+                
+                <div class="student-details-grid">
+                    <div class="detail-section">
+                        <h3>Informações Pessoais</h3>
+                        <p><strong>Data de Nascimento:</strong> 15/05/2010</p>
+                        <p><strong>Gênero:</strong> Masculino</p>
+                        <p><strong>BI:</strong> 1234567LA123</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Contato</h3>
+                        <p><strong>Endereço:</strong> Rua Principal, 123, Camama</p>
+                        <p><strong>Telefone:</strong> 912345678</p>
+                        <p><strong>Email:</strong> joao.silva@email.com</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Encarregado</h3>
+                        <p><strong>Nome:</strong> Maria Silva</p>
+                        <p><strong>Telefone:</strong> 923456789</p>
+                        <p><strong>Parentesco:</strong> Mãe</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Informações Acadêmicas</h3>
+                        <p><strong>Matrícula:</strong> 2023001</p>
+                        <p><strong>Ano Letivo:</strong> 2023</p>
+                        <p><strong>Observações:</strong> Aluno exemplar, participativo em todas as atividades.</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.getElementById('student-details').innerHTML = studentDetails;
+        viewStudentModal.style.display = 'block';
+    }
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
     
     // Função para editar estudante
     function editStudent(id) {
@@ -1875,6 +1976,10 @@ function viewStudent(id) {
 </html>
 
 <?php }else{
+<<<<<<< HEAD
     header("Location: ..login/login.php");
+=======
+    header("Location: ../login.php");
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
     exit;
 } ?>

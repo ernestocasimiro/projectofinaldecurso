@@ -222,6 +222,7 @@
             margin-top: 1rem;
         }
         
+<<<<<<< HEAD
         .approved {
             color: green;
             font-weight: bold;
@@ -237,6 +238,8 @@
             font-weight: bold;
         }
         
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         @media print {
             body * {
                 visibility: hidden;
@@ -254,11 +257,14 @@
                 height: 100%;
                 padding: 0;
                 margin: 0;
+<<<<<<< HEAD
                 transform: scale(1) !important;
             }
             
             .minipauta-config, .preview-header, .sidebar, .top-bar, .page-header button {
                 display: none !important;
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             }
         }
         
@@ -351,7 +357,14 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
+<<<<<<< HEAD
                 
+=======
+                <a href="configuracoes.php">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="menu-text">Configurações</span>
+                </a>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>
@@ -427,7 +440,11 @@
                                     </select>
                                 </div><br>
 
+<<<<<<< HEAD
                                 <h4>Opções de Exibição</h4><br>
+=======
+                                <h4>Opções de Exibição</h4><br><br><br><br>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                 <div class="option-group">
                                     <div class="toggle-switch">
                                         <input type="checkbox" id="incluir-notas" class="toggle-input" checked>
@@ -510,7 +527,11 @@
                                         </div>
                                         <div class="info-group">
                                             <label>Professor(a):</label>
+<<<<<<< HEAD
                                             <span data-dynamic="user-name"><?php echo htmlspecialchars($teacher['fname'] . ' ' . $teacher['lname']); ?></span>
+=======
+                                            <span data-dynamic="user-name">Prof. Silva</span>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                         </div>
                                         <div class="info-group">
                                             <label>Total de Alunos:</label>
@@ -519,6 +540,38 @@
                                     </div>
                                 </div>
                                 <table class="minipauta-table" id="minipauta-table">
+<<<<<<< HEAD
+=======
+                                    
+                                <style>
+                                    table {
+                                        width: 100%;
+                                        border-collapse: collapse;
+                                        margin-top: 10px;
+                                        font-family: Arial, sans-serif;
+                                        font-size: 14px;
+                                    }
+
+                                    th, td {
+                                        border: 1px solid #ccc;
+                                        padding: 8px;
+                                        text-align: center;
+                                        vertical-align: middle;
+                                    }
+
+                                    th {
+                                        background-color: #f2f2f2;
+                                        font-weight: bold;
+                                    }
+
+                                    .aluno-nome {
+                                        text-align: left;
+                                    }
+                                </style>
+
+                                <!-- Tabela completa -->
+                                <table>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <thead>
                                         <tr>
                                             <th>Nº</th>
@@ -531,10 +584,49 @@
                                             <th>Situação</th>
                                         </tr>
                                     </thead>
+<<<<<<< HEAD
                                     <tbody id="minipauta-table-body">
                                         <!-- Dados serão preenchidos via JavaScript -->
                                     </tbody>
                                 </table>
+=======
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="aluno-nome">João Pedro</td>
+                                            <td>15</td>
+                                            <td>14</td>
+                                            <td>17</td>
+                                            <td>15.3</td>
+                                            <td>96%</td>
+                                            <td>Aprovado</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="aluno-nome">Maria Silva</td>
+                                            <td>18</td>
+                                            <td>17</td>
+                                            <td>19</td>
+                                            <td>18.0</td>
+                                            <td>100%</td>
+                                            <td>Aprovada</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="aluno-nome">Carlos António</td>
+                                            <td>12</td>
+                                            <td>13</td>
+                                            <td>14</td>
+                                            <td>13.0</td>
+                                            <td>89%</td>
+                                            <td>Recuperação</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+                                </table>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                 <div class="minipauta-footer">
                                     <div class="signature-area">
                                         <div class="signature">
@@ -558,6 +650,7 @@
         </main>
     </div>
 
+<<<<<<< HEAD
     <script>
         // Dados de exemplo (substitua por dados reais do seu banco de dados)
         window.dashboardData = {
@@ -628,6 +721,12 @@
 
         // Toggle sidebar on mobile
         document.getElementById('menuToggle')?.addEventListener('click', function() {
+=======
+    <script src="dashboard-data.js"></script>
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('menuToggle').addEventListener('click', function() {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             document.querySelector('.sidebar').classList.toggle('collapsed');
             document.querySelector('.content').classList.toggle('expanded');
         });
@@ -654,7 +753,11 @@
                 const row = document.createElement('tr');
                 
                 // Obter notas da disciplina selecionada
+<<<<<<< HEAD
                 const grades = student.grades[disciplinaId] || {av1: 0, av2: 0, av3: 0, average: 0};
+=======
+                const grades = student.grades[disciplinaId];
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 
                 // Determinar situação com base na média
                 let situacao = 'Aprovado';
@@ -690,6 +793,7 @@
 
         // Botão de impressão
         document.getElementById('printButton').addEventListener('click', function() {
+<<<<<<< HEAD
             // Verificar se há alunos na tabela antes de imprimir
             const tableBody = document.getElementById('minipauta-table-body');
             if (tableBody.rows.length === 0) {
@@ -697,6 +801,8 @@
                 return;
             }
             
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             window.print();
         });
 

@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 session_start();
 
 $sName = "localhost";
@@ -38,6 +39,49 @@ try {
 $dataAtual = '15 de Abril de 2025';
 $trimestre = '2º trimestre';
 $anoLetivo = '2025';
+=======
+        session_start();
+
+        $sName = "localhost";
+        $uNname = "root";
+        $pass = "";
+        $db_name = "escolabd";
+
+        try {
+            $conn = new PDO("mysql:host=$sName;dbname=$db_name", $uNname, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+            exit;
+        }
+
+        // Aqui pega o id do encarregado da sessão (a chave é 'id' conforme você mencionou)
+        $idGuardian = $_SESSION['id'] ?? null;
+
+        if (!$idGuardian) {
+            die("Encarregado não identificado.");
+        }
+
+        try {
+            $stmt = $conn->prepare("SELECT fname, lname FROM encarregados WHERE id = :id");
+            $stmt->bindParam(':id', $idGuardian, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $guardian = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$guardian) {
+                die("Encarregado não encontrado.");
+            }
+        } catch (PDOException $e) {
+            echo "Erro na consulta: " . $e->getMessage();
+            exit;
+        }
+
+        $dataAtual = '15 de Abril de 2025';
+        $trimestre = '2º trimestre';
+        $anoLetivo = '2025';
+
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +92,7 @@ $anoLetivo = '2025';
     <title>Frequência - Dashboard Encarregados</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<<<<<<< HEAD
     <style>
         :root {
             --primary-color: #4361ee;
@@ -800,6 +845,8 @@ $anoLetivo = '2025';
             }
         }
     </style>
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 </head>
 <body>
     <div class="container">
@@ -809,6 +856,7 @@ $anoLetivo = '2025';
                 <h2>Pitruca Camama</h2>
             </div>
             <div class="profile">
+<<<<<<< HEAD
                 <div class="profile-avatar">
                     <?php 
                         $names = explode(' ', $guardian['fname']);
@@ -818,6 +866,10 @@ $anoLetivo = '2025';
                 </div>
                 <div class="profile-info">
                     <h3><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></h3>
+=======
+                <div class="profile-info">
+                    <h3><span><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></span></h1></h3>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <p>Encarregado/a de Educação</p>
                 </div>
             </div>
@@ -871,15 +923,25 @@ $anoLetivo = '2025';
                             <span class="menu-text">Boletins</span>
                         </a>
                     </li>
+<<<<<<< HEAD
                 </ul>
             </nav>
             <div class="sidebar-footer">
                 <!--
+=======
+                  
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="configuracoes.php">
                     <span class="material-symbols-outlined">settings</span>
                     <span class="menu-text">Configurações</span>
                 </a>
+<<<<<<< HEAD
     -->
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>

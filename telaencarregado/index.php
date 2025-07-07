@@ -36,6 +36,7 @@
             exit;
         }
 
+<<<<<<< HEAD
      
 // Define o fuso horário (Angola: África/Luanda)
 date_default_timezone_set('Africa/Luanda');
@@ -63,10 +64,19 @@ if ($mes >= 1 && $mes <= 3) {
 // Ano letivo (pode ser só o ano atual)
 $anoLetivo = date('Y');
 
+=======
+        $dataAtual = '15 de Abril de 2025';
+        $trimestre = '2º trimestre';
+        $anoLetivo = '2025';
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 
 ?>
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -75,6 +85,7 @@ $anoLetivo = date('Y');
     <title>Dashboard - Encarregados de Educação</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
@@ -1032,6 +1043,8 @@ $anoLetivo = date('Y');
             }
         }
     </style>
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 </head>
 <body>
     <div class="container">
@@ -1040,6 +1053,7 @@ $anoLetivo = date('Y');
             <div class="sidebar-header">
                 <h2>Pitruca Camama</h2>
             </div>
+<<<<<<< HEAD
 
             <div class="profile">
                 <div class="profile-avatar">
@@ -1050,6 +1064,10 @@ $anoLetivo = date('Y');
                     ?>
                 </div>
                 <div class="profile-info">
+=======
+            <div class="profile">
+               <div class="profile-info">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <h3><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></h3>
                     <p>Encarregado/a de Educação</p>
                 </div>
@@ -1104,15 +1122,26 @@ $anoLetivo = date('Y');
                             <span class="menu-text">Boletins</span>
                         </a>
                     </li>
+<<<<<<< HEAD
                 </ul>
             </nav>
             <div class="sidebar-footer">
                 <!--
+=======
+                    <li>
+                      
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="configuracoes.php">
                     <span class="material-symbols-outlined">settings</span>
                     <span class="menu-text">Configurações</span>
                 </a>
+<<<<<<< HEAD
     -->
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>
@@ -1135,18 +1164,29 @@ $anoLetivo = date('Y');
 
             <div class="dashboard-content">
                 <div class="welcome-section">
+<<<<<<< HEAD
                     <div class="welcome-text">
+=======
+                  <div class="welcome-text">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                         <h1>Bem-vindo/a, <span><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></span>!</h1>
                         <p>Hoje é <span><?php echo $dataAtual; ?></span> | <span><?php echo $trimestre; ?></span> | Ano Letivo <span><?php echo $anoLetivo; ?></span></p>
                     </div>
 
                     <div class="welcome-actions">
+<<<<<<< HEAD
                         <a href="mensagens.php" style="color: inherit; text-decoration: none;">
                             <button class="btn-primary">
                                 <span class="material-symbols-outlined">message</span>
                                 Nova Mensagem
                             </button>
                         </a>
+=======
+                        <button class="btn-primary">
+                            <span class="material-symbols-outlined">message</span>
+                            Nova Mensagem
+                        </button>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     </div>
                 </div>
 
@@ -1199,7 +1239,11 @@ $anoLetivo = date('Y');
                         <div class="card-content">
                             <div class="student-item">
                                 <div class="student-info">
+<<<<<<< HEAD
                                     <h4>Joao Francisco</h4>
+=======
+                                    <h4>Steeve Salvador</h4>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <p>9º Ano A - Ensino Fundamental</p>
                                     <div class="student-stats">
                                         <span class="stat">Média: 8.7</span>
@@ -1212,7 +1256,11 @@ $anoLetivo = date('Y');
                             </div>
                             <div class="student-item">
                                 <div class="student-info">
+<<<<<<< HEAD
                                     <h4>Joana Francisco</h4>
+=======
+                                    <h4>Kelton Gonçalves</h4>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     <p>6º Ano B - Ensino Fundamental</p>
                                     <div class="student-stats">
                                         <span class="stat">Média: 8.3</span>

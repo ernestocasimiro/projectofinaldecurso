@@ -21,12 +21,15 @@ if (!$idGuardian) {
     die("Encarregado não identificado.");
 }
 
+<<<<<<< HEAD
 // Verifica se é uma requisição para exportar dados
 if (isset($_GET['export'])) {
     exportStudentData($conn, $idGuardian);
     exit;
 }
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 try {
     // Busca informações do encarregado
     $stmt = $conn->prepare("SELECT fname, lname FROM encarregados WHERE id = :id");
@@ -50,11 +53,14 @@ try {
     $stmt->execute();
     $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+<<<<<<< HEAD
     // Busca todos os professores para o modal de mensagem
     $stmt = $conn->prepare("SELECT id, fname, lname FROM professores");
     $stmt->execute();
     $teachers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 } catch (PDOException $e) {
     echo "Erro na consulta: " . $e->getMessage();
     exit;
@@ -64,6 +70,7 @@ $dataAtual = '15 de Abril de 2025';
 $trimestre = '2º trimestre';
 $anoLetivo = '2025';
 
+<<<<<<< HEAD
 // Função para exportar dados do estudante
 function exportStudentData($conn, $guardianId) {
     try {
@@ -175,6 +182,8 @@ function exportStudentData($conn, $guardianId) {
     }
 }
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -185,6 +194,7 @@ function exportStudentData($conn, $guardianId) {
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
+<<<<<<< HEAD
         :root {
             --primary-color: #4361ee;
             --primary-light: #eef2ff;
@@ -521,11 +531,64 @@ function exportStudentData($conn, $guardianId) {
             margin-right: 15px;
         }
 
+=======
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .status-badge.active {
+            background-color: #e3f9e5;
+            color: #1b7052;
+        }
+        .status-badge.inactive {
+            background-color: #ffe3e3;
+            color: #ff4d4d;
+        }
+        .status-badge.pending {
+            background-color: #fff8e3;
+            color: #ffb700;
+        }
+        .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .stat-value.excellent {
+            color: #1b7052;
+        }
+        .stat-value.good {
+            color: #4a8b2c;
+        }
+        .stat-value.average {
+            color: #ffb700;
+        }
+        .stat-value.poor {
+            color: #ff4d4d;
+        }
+        .subject-grade {
+            font-weight: 600;
+        }
+        .subject-grade.excellent {
+            color: #1b7052;
+        }
+        .subject-grade.good {
+            color: #4a8b2c;
+        }
+        .subject-grade.average {
+            color: #ffb700;
+        }
+        .subject-grade.poor {
+            color: #ff4d4d;
+        }
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         .child-avatar img {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
+<<<<<<< HEAD
             border: 3px solid var(--primary-light);
         }
 
@@ -1032,6 +1095,8 @@ function exportStudentData($conn, $guardianId) {
             .modal-content {
                 width: 95%;
             }
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
     </style>
 </head>
@@ -1043,6 +1108,7 @@ function exportStudentData($conn, $guardianId) {
                 <h2>Pitruca Camama</h2>
             </div>
             <div class="profile">
+<<<<<<< HEAD
                 <div class="profile-avatar">
                     <?php 
                         $names = explode(' ', $guardian['fname']);
@@ -1052,6 +1118,10 @@ function exportStudentData($conn, $guardianId) {
                 </div>
                 <div class="profile-info">
                     <h3><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></h3>
+=======
+                <div class="profile-info">
+                    <h3><span><?php echo htmlspecialchars($guardian['fname'] . ' ' . $guardian['lname']); ?></span></h1></h3>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <p>Encarregado/a de Educação</p>
                 </div>
             </div>
@@ -1108,12 +1178,18 @@ function exportStudentData($conn, $guardianId) {
                 </ul>
             </nav>
             <div class="sidebar-footer">
+<<<<<<< HEAD
                 <!--
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="configuracoes.php">
                     <span class="material-symbols-outlined">settings</span>
                     <span class="menu-text">Configurações</span>
                 </a>
+<<<<<<< HEAD
     -->
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>
@@ -1138,13 +1214,18 @@ function exportStudentData($conn, $guardianId) {
                 <div class="page-header">
                     <h1>Meus Filhos</h1>
                     <div class="header-actions">
+<<<<<<< HEAD
                         <button class="btn-outline" id="exportDataBtn">
+=======
+                        <button class="btn-outline">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                             <span class="material-symbols-outlined">download</span>
                             Exportar Dados
                         </button>
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <!-- Children Cards -->
                 <div class="children-grid">
                     <?php if (count($students) > 0): ?>
@@ -1236,12 +1317,98 @@ function exportStudentData($conn, $guardianId) {
                                 <option>Últimos 7 dias</option>
                                 <option>Últimos 30 dias</option>
                                 <option>Todo o período</option>
+=======
+               <!-- Children Cards -->
+<div class="children-grid">
+    <?php if (count($students) > 0): ?>
+        <?php foreach ($students as $student): ?>
+            <div class="child-card">
+                <div class="child-header">
+                    <div class="child-avatar">
+                        <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($student['fname'] . ' ' . $student['lname']); ?>&background=random" 
+                             alt="<?php echo htmlspecialchars($student['fname'] . ' ' . $student['lname']); ?>" 
+                             style="width: 80px; height: 80px; border-radius: 50%;">
+                    </div>
+                    <div class="child-basic-info">
+                        <h2><?php echo htmlspecialchars($student['fname'] . ' ' . $student['lname']); ?></h2>
+                        <?php if ($student['class_name']): ?>
+                            <p><?php echo htmlspecialchars($student['class_name']); ?> - <?php echo htmlspecialchars($student['class_grade']); ?>ª Classe</p>
+                        <?php else: ?>
+                            <p>Turma não definida</p>
+                        <?php endif; ?>
+                        <span class="status-badge <?php echo htmlspecialchars($student['status'] ?? 'pending'); ?>">
+                            <?php 
+                                switch($student['status']) {
+                                    case 'active': echo 'Ativo'; break;
+                                    case 'inactive': echo 'Inativo'; break;
+                                    default: echo 'Pendente'; break;
+                                }
+                            ?>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="child-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Média Geral</span>
+                        <span class="stat-value good">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Frequência</span>
+                        <span class="stat-value excellent">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Disciplinas</span>
+                        <span class="stat-value">-</span>
+                    </div>
+                </div>
+
+                <div class="child-subjects">
+                    <h4>Disciplinas com Menor Desempenho</h4>
+                    <div class="subject-list">
+                        <div class="subject-item">
+                            <span class="subject-name">-</span>
+                            <span class="subject-grade average">-</span>
+                        </div>
+                        <div class="subject-item">
+                            <span class="subject-name">-</span>
+                            <span class="subject-grade average">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child-actions">
+                    <button class="btn-primary">Ver Detalhes</button>
+                    <button class="btn-outline">Mensagem Professor</button>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <div class="no-children">
+            <p>Nenhum estudante vinculado a este encarregado.</p>
+        </div>
+    <?php endif; ?>
+</div>
+
+
+                <!-- Recent Activity -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Atividade Recente</h2>
+                        <div class="filter-container">
+                            <select class="filter-select">
+                                <option>Todos os filhos</option>
+                                <?php foreach ($students as $student): ?>
+                                    <option><?php echo htmlspecialchars($student['fname'] . ' ' . htmlspecialchars($student['lname'])); ?></option>
+                                <?php endforeach; ?>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                             </select>
                         </div>
                     </div>
                     <div class="activity-list">
                         <div class="activity-item">
                             <div class="activity-icon">
+<<<<<<< HEAD
                                 <span class="material-symbols-outlined">assignment</span>
                             </div>
                             <div class="activity-content">
@@ -1265,6 +1432,13 @@ function exportStudentData($conn, $guardianId) {
                             <div class="activity-content">
                                 <h4>Novo comunicado escolar</h4>
                                 <p>Publicado em <?php echo $dataAtual; ?> pela direção</p>
+=======
+                                <span class="material-symbols-outlined">grade</span>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Nenhuma atividade recente</h4>
+                                <p>Não há registros de atividades recentes para exibir</p>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                             </div>
                         </div>
                     </div>
@@ -1273,6 +1447,7 @@ function exportStudentData($conn, $guardianId) {
         </main>
     </div>
 
+<<<<<<< HEAD
     <!-- Teacher Selection Modal -->
     <div class="modal" id="teacherModal">
         <div class="modal-content">
@@ -1593,6 +1768,12 @@ function exportStudentData($conn, $guardianId) {
                 
                 detailsContent.innerHTML = html;
             }
+=======
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.content').classList.toggle('expanded');
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         });
     </script>
 </body>

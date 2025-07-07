@@ -108,7 +108,14 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
+<<<<<<< HEAD
                 
+=======
+                <a href="configuracoes.php">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="menu-text">Configurações</span>
+                </a>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>
@@ -224,6 +231,7 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
     <style>
         .dashboard-grid {
             display: grid;
@@ -282,6 +290,66 @@
             height: auto !important;
         }
     </style>
+=======
+                <style>
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .dashboard-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.07);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .wide-card {
+        width: 100%;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    .card-header h2 {
+        font-size: 18px;
+        color: #333;
+        margin: 0;
+    }
+
+    .time-filter select {
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #333;
+        background-color: #fafafa;
+        transition: 0.2s ease-in-out;
+    }
+
+    .time-filter select:focus {
+        outline: none;
+        border-color: #3f51b5;
+    }
+
+    .card-content {
+        margin-top: 10px;
+    }
+
+    canvas {
+        width: 100% !important;
+        height: auto !important;
+    }
+</style>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 
 <div class="dashboard-grid">
     <!-- Gráfico de Receitas e Despesas -->
@@ -565,6 +633,7 @@
                 }
 </style>
 
+<<<<<<< HEAD
 <!-- Estilos para Alertas Financeiros -->
 <style>
     .dashboard-card {
@@ -652,6 +721,8 @@
     }
 </style>
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 <!-- Alertas Financeiros -->
 <div class="dashboard-card">
     <div class="card-header">
@@ -695,7 +766,10 @@
 </div>
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <!-- Inadimplência por Turma
                     <div class="dashboard-card">
                         <div class="card-header">

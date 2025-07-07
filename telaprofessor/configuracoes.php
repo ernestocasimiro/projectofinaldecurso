@@ -14,19 +14,22 @@
             exit;
         }
 
-        $idCoordinator = $_SESSION['id'] ?? null;
+        // Aqui pega o id do encarregado da sessão (a chave é 'id' conforme você mencionou)
+        $idTeacher = $_SESSION['id'] ?? null;
 
-        if (!$idCoordinator) {
-            die("coordenador não identificado.");
+        if (!$idTeacher) {
+            die("professor não identificado.");
         }
 
         try {
-            $stmt = $conn->prepare("SELECT fname, lname FROM coordenadores WHERE id = :id");
-            $stmt->bindParam(':id', $idCoordinator, PDO::PARAM_INT);
+            $stmt = $conn->prepare("SELECT fname, lname FROM professores WHERE id = :id");
+            $stmt->bindParam(':id', $idTeacher, PDO::PARAM_INT);
             $stmt->execute();
-            $coordinator = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (!$coordinator) {
-                die("coordenador não encontrado.");
+
+            $teacher = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$teacher) {
+                die("professor não encontrado.");
             }
         } catch (PDOException $e) {
             echo "Erro na consulta: " . $e->getMessage();
@@ -36,6 +39,7 @@
         $dataAtual = '15 de Abril de 2025';
         $trimestre = '2º trimestre';
         $anoLetivo = '2025';
+
 ?>
 
 
@@ -58,6 +62,7 @@
             <div class="profile">
                 <div class="profile-info">
                     <h3><?php echo htmlspecialchars($teacher['fname'] . ' ' . $teacher['lname']); ?></h3>
+                    <p>Professor/a</p>
                 </div>
             </div>
             <nav class="menu">
@@ -75,24 +80,11 @@
                         </a>
                     </li>
                     <li>
-<<<<<<< HEAD
-                        <a href="professores.php">
-                            <span class="material-symbols-outlined">group</span>
-                            <span class="menu-text">Professores</span>
-                        </a>
-                    </li>
-                    <li>
-=======
->>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                         <a href="turmas.php">
                             <span class="material-symbols-outlined">school</span>
                             <span class="menu-text">Turmas</span>
                         </a>
                     </li>
-<<<<<<< HEAD
-                    
-=======
->>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <li>
                         <a href="notas.php">
                             <span class="material-symbols-outlined">grade</span>
@@ -139,18 +131,10 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
-<<<<<<< HEAD
-                <!--
-=======
->>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="configuracoes.php" class="active">
                     <span class="material-symbols-outlined">settings</span>
                     <span class="menu-text">Configurações</span>
                 </a>
-<<<<<<< HEAD
-    -->
-=======
->>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>

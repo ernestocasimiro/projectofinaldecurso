@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 session_start();
 
 $sName = "localhost";
@@ -38,6 +39,48 @@ $trimestre = '2º trimestre';
 $anoLetivo = '2025';
 ?>
 
+=======
+        session_start();
+
+        $sName = "localhost";
+        $uNname = "root";
+        $pass = "";
+        $db_name = "escolabd";
+
+        try {
+            $conn = new PDO("mysql:host=$sName;dbname=$db_name", $uNname, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+            exit;
+        }
+
+        $idCoordinator = $_SESSION['id'] ?? null;
+
+        if (!$idCoordinator) {
+            die("coordenador não identificado.");
+        }
+
+        try {
+            $stmt = $conn->prepare("SELECT fname, lname FROM coordenadores WHERE id = :id");
+            $stmt->bindParam(':id', $idCoordinator, PDO::PARAM_INT);
+            $stmt->execute();
+            $coordinator = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$coordinator) {
+                die("coordenador não encontrado.");
+            }
+        } catch (PDOException $e) {
+            echo "Erro na consulta: " . $e->getMessage();
+            exit;
+        }
+
+        $dataAtual = '15 de Abril de 2025';
+        $trimestre = '2º trimestre';
+        $anoLetivo = '2025';
+?>
+
+
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -47,6 +90,7 @@ $anoLetivo = '2025';
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="boletins.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<<<<<<< HEAD
     <style>
         @media print {
             body * {
@@ -233,6 +277,8 @@ $anoLetivo = '2025';
             background: #f5f5f5;
         }
     </style>
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 </head>
 <body>
     <div class="container">
@@ -261,12 +307,15 @@ $anoLetivo = '2025';
                             <span class="menu-text">Alunos</span>
                         </a>
                     </li>
+<<<<<<< HEAD
                     <li >
                         <a href="professores.php">
                             <span class="material-symbols-outlined">group</span>
                             <span class="menu-text">Professores</span>
                         </a>
                     </li>
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                     <li>
                         <a href="turmas.php">
                             <span class="material-symbols-outlined">school</span>
@@ -318,6 +367,13 @@ $anoLetivo = '2025';
                 </ul>
             </nav>
             <div class="sidebar-footer">
+<<<<<<< HEAD
+=======
+                <a href="configuracoes.php">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="menu-text">Configurações</span>
+                </a>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>
@@ -427,9 +483,16 @@ $anoLetivo = '2025';
                                     <div class="toggle-switch">
                                         <input type="checkbox" id="selecionar-todos" class="toggle-input" checked>
                                         <label for="selecionar-todos" class="toggle-label"></label>
+<<<<<<< HEAD
                                         <span>Selecionar todos</span>
                                     </div>
                                     <button class="btn-text" id="limparSelecao">Limpar seleção</button>
+=======
+                                        <span>Selecionar todos</span> </label>
+                                        
+                                    </div>
+                                    <button class="btn-text">Limpar seleção</button>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                 </div>
                                 <div class="alunos-list" id="alunos-list">
                                     <!-- Alunos serão carregados dinamicamente -->
@@ -506,6 +569,7 @@ $anoLetivo = '2025';
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="grades-table">
                                     <table>
                                         <thead>
@@ -571,6 +635,107 @@ $anoLetivo = '2025';
                                         </tbody>
                                     </table>
                                 </div>
+=======
+                                  <style>
+    .grades-table table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+    }
+
+    .grades-table th, .grades-table td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+        background-color: #f9f9ff;
+    }
+
+    .grades-table thead th {
+        background-color: #f0f4ff;
+        font-weight: bold;
+    }
+
+    .grades-table th[rowspan] {
+        vertical-align: middle;
+    }
+
+    .grades-table tbody td:first-child {
+        text-align: left;
+        font-weight: 500;
+    }
+
+    .grades-table tbody tr:hover {
+        background-color: #f1f7ff;
+    }
+</style>
+
+<div class="grades-table">
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Disciplina</th>
+                <th colspan="3">Avaliações</th>
+                <th rowspan="2">Média</th>
+                <th rowspan="2">Frequência</th>
+                <th rowspan="2">Situação</th>
+            </tr>
+            <tr>
+                <th>AV1</th>
+                <th>AV2</th>
+                <th>AV3</th>
+            </tr>
+        </thead>
+        <tbody id="grades-table-body">
+            <tr>
+                <td>Matemática</td>
+                <td>15</td>
+                <td>14</td>
+                <td>17</td>
+                <td>15.3</td>
+                <td>96%</td>
+                <td>Aprovado</td>
+            </tr>
+            <tr>
+                <td>Português</td>
+                <td>13</td>
+                <td>12</td>
+                <td>14</td>
+                <td>13.0</td>
+                <td>92%</td>
+                <td>Aprovado</td>
+            </tr>
+            <tr>
+                <td>História</td>
+                <td>10</td>
+                <td>11</td>
+                <td>9</td>
+                <td>10.0</td>
+                <td>85%</td>
+                <td>Recuperação</td>
+            </tr>
+            <tr>
+                <td>Inglês</td>
+                <td>8</td>
+                <td>7</td>
+                <td>6</td>
+                <td>7.0</td>
+                <td>78%</td>
+                <td>Reprovado</td>
+            </tr>
+            <tr>
+                <td>Geografia</td>
+                <td>16</td>
+                <td>15</td>
+                <td>14</td>
+                <td>15.0</td>
+                <td>99%</td>
+                <td>Aprovado</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 
                                 <div class="teacher-comments">
                                     <h4>Comentários dos Professores</h4>
@@ -604,7 +769,11 @@ $anoLetivo = '2025';
     <script src="dashboard-data.js"></script>
     <script>
         // Toggle sidebar on mobile
+<<<<<<< HEAD
         document.getElementById('menuToggle')?.addEventListener('click', function() {
+=======
+        document.getElementById('menuToggle').addEventListener('click', function() {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             document.querySelector('.sidebar').classList.toggle('collapsed');
             document.querySelector('.content').classList.toggle('expanded');
         });
@@ -622,7 +791,11 @@ $anoLetivo = '2025';
             const turmaId = turmaSelect.value;
             
             // Filtrar alunos pela turma selecionada
+<<<<<<< HEAD
             let filteredStudents = window.dashboardData?.students || [];
+=======
+            let filteredStudents = window.dashboardData.students;
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             if (turmaId !== 'todos') {
                 filteredStudents = filteredStudents.filter(student => student.class === turmaId);
             }
@@ -636,10 +809,17 @@ $anoLetivo = '2025';
                         <input type="checkbox" id="aluno-${index}" class="toggle-input" checked data-student-id="${student.id}">
                         <label for="aluno-${index}" class="toggle-label"></label>
                         <div class="aluno-info">
+<<<<<<< HEAD
                             <img src="${student.avatar || 'https://via.placeholder.com/40'}" alt="${student.name}">
                             <div>
                                 <p>${student.name}</p>
                                 <span class="text-muted">${(window.dashboardData?.classes?.find(c => c.id === student.class)?.name) || ''}</span>
+=======
+                            <img src="${student.avatar}" alt="${student.name}">
+                            <div>
+                                <p>${student.name}</p>
+                                <span class="text-muted">${window.dashboardData.classes.find(c => c.id === student.class)?.name || ''}</span>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                             </div>
                         </div>
                     </div>
@@ -650,7 +830,11 @@ $anoLetivo = '2025';
 
         // Carregar dados do boletim para um aluno específico
         function loadStudentReportCard(studentId) {
+<<<<<<< HEAD
             const student = window.dashboardData?.students?.find(s => s.id === studentId);
+=======
+            const student = window.dashboardData.students.find(s => s.id === studentId);
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             if (!student) return;
             
             // Atualizar informações do aluno no boletim
@@ -659,12 +843,17 @@ $anoLetivo = '2025';
             
             const studentClassElement = document.querySelector('[data-dynamic="report-student-class"]');
             if (studentClassElement) {
+<<<<<<< HEAD
                 const classInfo = window.dashboardData?.classes?.find(c => c.id === student.class);
+=======
+                const classInfo = window.dashboardData.classes.find(c => c.id === student.class);
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 studentClassElement.textContent = classInfo ? classInfo.name : '';
             }
             
             // Atualizar comentários no boletim
             const commentsElement = document.querySelector('[data-dynamic="report-comments"]');
+<<<<<<< HEAD
             if (commentsElement) commentsElement.textContent = student.comments || 'Sem comentários disponíveis.';
             
             // Atualizar tabela de notas (se a função existir)
@@ -680,12 +869,26 @@ $anoLetivo = '2025';
 
         // Selecionar todos os alunos
         document.getElementById('selecionar-todos')?.addEventListener('change', function() {
+=======
+            if (commentsElement) commentsElement.textContent = student.comments;
+            
+            // Atualizar tabela de notas
+            window.dashboardData.updateGradesTable(student);
+            
+            // Atualizar gráfico de desempenho
+            window.dashboardData.updatePerformanceChart(student);
+        }
+
+        // Selecionar todos os alunos
+        document.getElementById('selecionar-todos').addEventListener('change', function() {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             const checkboxes = document.querySelectorAll('.alunos-list .toggle-input');
             checkboxes.forEach(checkbox => {
                 checkbox.checked = this.checked;
             });
         });
 
+<<<<<<< HEAD
         // Botão de impressão - corrigido para imprimir apenas o boletim
         document.getElementById('printButton')?.addEventListener('click', function() {
             // Criar um clone do boletim
@@ -859,24 +1062,44 @@ $anoLetivo = '2025';
 
         // Atualizar turma e recarregar lista de alunos
         document.getElementById('turma')?.addEventListener('change', function() {
+=======
+        // Botão de impressão
+        document.getElementById('printButton').addEventListener('click', function() {
+            window.print();
+        });
+
+        // Atualizar turma e recarregar lista de alunos
+        document.getElementById('turma').addEventListener('change', function() {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             loadStudentsList();
         });
 
         // Botão de visualização
+<<<<<<< HEAD
         document.getElementById('visualizarBtn')?.addEventListener('click', function() {
+=======
+        document.getElementById('visualizarBtn').addEventListener('click', function() {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             // Obter o primeiro aluno selecionado
             const selectedCheckbox = document.querySelector('.alunos-list .toggle-input:checked');
             if (selectedCheckbox) {
                 const studentId = selectedCheckbox.getAttribute('data-student-id');
                 loadStudentReportCard(studentId);
+<<<<<<< HEAD
             } else {
                 alert('Por favor, selecione pelo menos um aluno para visualizar.');
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             }
         });
 
         // Zoom in/out
         let currentZoom = 100;
+<<<<<<< HEAD
         document.getElementById('zoomInBtn')?.addEventListener('click', function() {
+=======
+        document.getElementById('zoomInBtn').addEventListener('click', function() {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             if (currentZoom < 150) {
                 currentZoom += 10;
                 document.getElementById('boletim-document').style.transform = `scale(${currentZoom / 100})`;
@@ -884,7 +1107,11 @@ $anoLetivo = '2025';
             }
         });
 
+<<<<<<< HEAD
         document.getElementById('zoomOutBtn')?.addEventListener('click', function() {
+=======
+        document.getElementById('zoomOutBtn').addEventListener('click', function() {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             if (currentZoom > 50) {
                 currentZoom -= 10;
                 document.getElementById('boletim-document').style.transform = `scale(${currentZoom / 100})`;
@@ -893,7 +1120,11 @@ $anoLetivo = '2025';
         });
 
         // Tela cheia
+<<<<<<< HEAD
         document.getElementById('fullscreenBtn')?.addEventListener('click', function() {
+=======
+        document.getElementById('fullscreenBtn').addEventListener('click', function() {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             const previewContent = document.querySelector('.preview-content');
             if (previewContent.requestFullscreen) {
                 previewContent.requestFullscreen();
@@ -907,6 +1138,7 @@ $anoLetivo = '2025';
         // Inicializar a página
         document.addEventListener('DOMContentLoaded', function() {
             // Inicializar dados dinâmicos
+<<<<<<< HEAD
             if (window.dashboardData?.updateDynamicDates) {
                 window.dashboardData.updateDynamicDates();
             }
@@ -914,12 +1146,21 @@ $anoLetivo = '2025';
             if (window.dashboardData?.loadCurrentUserData) {
                 window.dashboardData.loadCurrentUserData();
             }
+=======
+            window.dashboardData.updateDynamicDates();
+            window.dashboardData.loadCurrentUserData();
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             
             // Carregar lista de alunos
             loadStudentsList();
             
+<<<<<<< HEAD
             // Carregar boletim do primeiro aluno (se existir)
             if (window.dashboardData?.students?.length > 0) {
+=======
+            // Carregar boletim do primeiro aluno
+            if (window.dashboardData.students.length > 0) {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 loadStudentReportCard(window.dashboardData.students[0].id);
             }
         });

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 <?php
         session_start();
 
@@ -51,9 +55,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="boletins.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<<<<<<< HEAD
     <!-- Adicionando a biblioteca jsPDF para exportar PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+=======
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 </head>
 <body>
     <div class="container">
@@ -133,7 +140,14 @@
                 </ul>
             </nav>
             <div class="sidebar-footer">
+<<<<<<< HEAD
                 
+=======
+                <a href="configuracoes.php">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="menu-text">Configurações</span>
+                </a>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                 <a href="logout.php" class="logout">
                     <span class="material-symbols-outlined">logout</span>
                     <span class="menu-text">Sair</span>
@@ -246,7 +260,11 @@
                                         <span>Selecionar todos</span> </label>
                                         
                                     </div>
+<<<<<<< HEAD
                                     <button class="btn-text" id="limparSelecao">Limpar seleção</button>
+=======
+                                    <button class="btn-text">Limpar seleção</button>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                 </div>
                                 <div class="alunos-list" id="alunos-list">
                                     <!-- Alunos serão carregados dinamicamente -->
@@ -455,7 +473,11 @@
     <script src="dashboard-data.js"></script>
     <script>
         // Toggle sidebar on mobile
+<<<<<<< HEAD
         document.getElementById('menuToggle')?.addEventListener('click', function() {
+=======
+        document.getElementById('menuToggle').addEventListener('click', function() {
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             document.querySelector('.sidebar').classList.toggle('collapsed');
             document.querySelector('.content').classList.toggle('expanded');
         });
@@ -473,6 +495,7 @@
             const turmaId = turmaSelect.value;
             
             // Filtrar alunos pela turma selecionada
+<<<<<<< HEAD
             let filteredStudents = window.dashboardData?.students || [
                 { id: 1, name: "Ana Silva", class: "9A", avatar: "https://via.placeholder.com/40", comments: "A aluna Ana Silva demonstra excelente desempenho em Matemática e Ciências. Recomenda-se atenção especial à disciplina de Inglês." },
                 { id: 2, name: "João Santos", class: "9A", avatar: "https://via.placeholder.com/40", comments: "Aluno participativo e dedicado. Bom desempenho geral." },
@@ -480,6 +503,9 @@
                 { id: 4, name: "Carlos Oliveira", class: "10C", avatar: "https://via.placeholder.com/40", comments: "Carlos precisa melhorar sua participação em sala de aula." }
             ];
             
+=======
+            let filteredStudents = window.dashboardData.students;
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             if (turmaId !== 'todos') {
                 filteredStudents = filteredStudents.filter(student => student.class === turmaId);
             }
@@ -490,13 +516,21 @@
                 alunoItem.className = 'aluno-item';
                 alunoItem.innerHTML = `
                     <div class="toggle-switch">
+<<<<<<< HEAD
                         <input type="checkbox" id="aluno-${index}" class="toggle-input aluno-checkbox" checked data-student-id="${student.id}">
+=======
+                        <input type="checkbox" id="aluno-${index}" class="toggle-input" checked data-student-id="${student.id}">
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                         <label for="aluno-${index}" class="toggle-label"></label>
                         <div class="aluno-info">
                             <img src="${student.avatar}" alt="${student.name}">
                             <div>
                                 <p>${student.name}</p>
+<<<<<<< HEAD
                                 <span class="text-muted">${student.class}</span>
+=======
+                                <span class="text-muted">${window.dashboardData.classes.find(c => c.id === student.class)?.name || ''}</span>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                             </div>
                         </div>
                     </div>
@@ -507,6 +541,7 @@
 
         // Carregar dados do boletim para um aluno específico
         function loadStudentReportCard(studentId) {
+<<<<<<< HEAD
             const students = window.dashboardData?.students || [
                 { id: 1, name: "Ana Silva", class: "9A", avatar: "https://via.placeholder.com/40", comments: "A aluna Ana Silva demonstra excelente desempenho em Matemática e Ciências. Recomenda-se atenção especial à disciplina de Inglês." },
                 { id: 2, name: "João Santos", class: "9A", avatar: "https://via.placeholder.com/40", comments: "Aluno participativo e dedicado. Bom desempenho geral." },
@@ -515,6 +550,9 @@
             ];
             
             const student = students.find(s => s.id == studentId);
+=======
+            const student = window.dashboardData.students.find(s => s.id === studentId);
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             if (!student) return;
             
             // Atualizar informações do aluno no boletim
@@ -523,13 +561,19 @@
             
             const studentClassElement = document.querySelector('[data-dynamic="report-student-class"]');
             if (studentClassElement) {
+<<<<<<< HEAD
                 studentClassElement.textContent = student.class;
+=======
+                const classInfo = window.dashboardData.classes.find(c => c.id === student.class);
+                studentClassElement.textContent = classInfo ? classInfo.name : '';
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             }
             
             // Atualizar comentários no boletim
             const commentsElement = document.querySelector('[data-dynamic="report-comments"]');
             if (commentsElement) commentsElement.textContent = student.comments;
             
+<<<<<<< HEAD
             // Atualizar ano letivo
             const anoLetivoElement = document.querySelector('[data-dynamic="report-year"]');
             if (anoLetivoElement) {
@@ -544,16 +588,28 @@
                 const periodoText = periodoSelect.options[periodoSelect.selectedIndex].text;
                 periodoElement.textContent = `${periodoText} ${document.getElementById('ano-letivo').value}`;
             }
+=======
+            // Atualizar tabela de notas
+            window.dashboardData.updateGradesTable(student);
+            
+            // Atualizar gráfico de desempenho
+            window.dashboardData.updatePerformanceChart(student);
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         }
 
         // Selecionar todos os alunos
         document.getElementById('selecionar-todos').addEventListener('change', function() {
+<<<<<<< HEAD
             const checkboxes = document.querySelectorAll('.alunos-list .aluno-checkbox');
+=======
+            const checkboxes = document.querySelectorAll('.alunos-list .toggle-input');
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             checkboxes.forEach(checkbox => {
                 checkbox.checked = this.checked;
             });
         });
 
+<<<<<<< HEAD
         // Limpar seleção de alunos
         document.getElementById('limparSelecao').addEventListener('click', function() {
             const checkboxes = document.querySelectorAll('.alunos-list .aluno-checkbox');
@@ -641,6 +697,11 @@
                 // Restaurar o zoom após exportação
                 document.getElementById('boletim-document').style.transform = currentZoom;
             });
+=======
+        // Botão de impressão
+        document.getElementById('printButton').addEventListener('click', function() {
+            window.print();
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
         });
 
         // Atualizar turma e recarregar lista de alunos
@@ -648,6 +709,7 @@
             loadStudentsList();
         });
 
+<<<<<<< HEAD
         // Atualizar ano letivo no boletim quando mudar
         document.getElementById('ano-letivo').addEventListener('change', function() {
             const anoLetivoElement = document.querySelector('[data-dynamic="report-year"]');
@@ -669,6 +731,15 @@
             if (periodoElement) {
                 const periodoText = this.options[this.selectedIndex].text;
                 periodoElement.textContent = `${periodoText} ${document.getElementById('ano-letivo').value}`;
+=======
+        // Botão de visualização
+        document.getElementById('visualizarBtn').addEventListener('click', function() {
+            // Obter o primeiro aluno selecionado
+            const selectedCheckbox = document.querySelector('.alunos-list .toggle-input:checked');
+            if (selectedCheckbox) {
+                const studentId = selectedCheckbox.getAttribute('data-student-id');
+                loadStudentReportCard(studentId);
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             }
         });
 
@@ -704,6 +775,7 @@
 
         // Inicializar a página
         document.addEventListener('DOMContentLoaded', function() {
+<<<<<<< HEAD
             // Carregar lista de alunos
             loadStudentsList();
             
@@ -712,6 +784,18 @@
             if (firstCheckbox) {
                 const studentId = firstCheckbox.getAttribute('data-student-id');
                 loadStudentReportCard(studentId);
+=======
+            // Inicializar dados dinâmicos
+            window.dashboardData.updateDynamicDates();
+            window.dashboardData.loadCurrentUserData();
+            
+            // Carregar lista de alunos
+            loadStudentsList();
+            
+            // Carregar boletim do primeiro aluno
+            if (window.dashboardData.students.length > 0) {
+                loadStudentReportCard(window.dashboardData.students[0].id);
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
             }
         });
     </script>

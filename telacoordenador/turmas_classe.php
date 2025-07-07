@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // Conexão à base de dados
 $sName = "localhost";
 $uNname = "root";
@@ -141,6 +142,148 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+=======
+            // Conexão à base de dados
+            $sName = "localhost";
+            $uNname = "root";
+            $pass = "";
+            $db_name = "escolabd";
+
+            try {
+                $conn = new PDO("mysql:host=$sName;dbname=$db_name", $uNname, $pass);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conn->exec("SET NAMES utf8");
+            } catch(PDOException $e) {
+                die("Erro na conexão: " . $e->getMessage());
+            }
+
+            // Processar ações
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_POST['criar_turma'])) {
+                    $classe = $_POST['classe'];
+                    $nomeTurma = $_POST['nome'];
+                    $class_grade = $_POST['class_grade'] ?? null;
+                    $class_course = $_POST['class_course'] ?? null;
+                    $class_period = $_POST['class_period'] ?? null;
+                    $class_year = $_POST['class_year'] ?? null;
+                    
+                    try {
+                        $conn->beginTransaction();
+                        
+                        // Verificar se a turma já existe
+                        $stmt = $conn->prepare("SELECT COUNT(*) FROM turma WHERE class_name = :nome AND class_year = :class_year");
+                        $stmt->bindParam(':nome', $nomeTurma);
+                        $stmt->bindParam(':class_year', $class_year);
+                        $stmt->execute();
+                        
+                        if ($stmt->fetchColumn() == 0) {
+                            // Criar nova turma com todos os campos obrigatórios
+                            $stmt = $conn->prepare("
+                                INSERT INTO turma (
+                                    class_name, class_grade, class_course, 
+                                    class_period, class_year, class_director_id
+                                ) VALUES (
+                                    :nome, :class_grade, :class_course, 
+                                    :class_period, :class_year, 1
+                                )
+                            ");
+                            
+                            $stmt->bindParam(':nome', $nomeTurma);
+                            $stmt->bindParam(':class_grade', $classe); // Use the class from form
+                            $stmt->bindParam(':class_course', $class_course);
+                            $stmt->bindParam(':class_period', $class_period);
+                            $stmt->bindParam(':class_year', $class_year);
+                            $stmt->execute();
+                            
+                            $newTurmaId = $conn->lastInsertId();
+                            $mensagem = "Turma $nomeTurma criada com sucesso!";
+                        } else {
+                            $erro = "Já existe uma turma com este nome neste ano letivo!";
+                        }
+                        
+                        $conn->commit();
+                    } catch(PDOException $e) {
+                        $conn->rollBack();
+                        $erro = "Erro ao criar turma: " . $e->getMessage();
+                    }
+                } elseif (isset($_POST['adicionar_alunos'])) {
+                    $idTurma = $_POST['turma_id'];
+                    $alunosSelecionados = isset($_POST['alunos']) ? $_POST['alunos'] : [];
+                    
+                    try {
+                        $conn->beginTransaction();
+                        
+                        // 1. Verificar se a turma existe
+                        $stmtCheckTurma = $conn->prepare("SELECT id, class_capacity FROM turma WHERE id = :turma_id");
+                        $stmtCheckTurma->bindParam(':turma_id', $idTurma);
+                        $stmtCheckTurma->execute();
+                        
+                        if ($turma = $stmtCheckTurma->fetch(PDO::FETCH_ASSOC)) {
+                            // 2. Verificar capacidade da turma
+                            $stmtCount = $conn->prepare("SELECT COUNT(*) FROM estudante_turma WHERE turma_id = :turma_id");
+                            $stmtCount->bindParam(':turma_id', $idTurma);
+                            $stmtCount->execute();
+                            $totalAlunos = $stmtCount->fetchColumn();
+                            
+                            if (($totalAlunos + count($alunosSelecionados)) > $turma['class_capacity']) {
+                                $erro = "A turma não pode ter mais de {$turma['class_capacity']} alunos!";
+                            } else {
+                                // 3. Adicionar cada aluno selecionado
+                                $stmtInsert = $conn->prepare("
+                                    INSERT INTO estudante_turma (estudante_id, turma_id) 
+                                    VALUES (:estudante_id, :turma_id)
+                                ");
+                                
+                                $stmtCheck = $conn->prepare("
+                                    SELECT COUNT(*) FROM estudante_turma 
+                                    WHERE turma_id = :turma_id AND estudante_id = :estudante_id
+                                ");
+                                
+                                $added = 0;
+                                foreach ($alunosSelecionados as $idEstudante) {
+                                    $stmtCheck->bindParam(':turma_id', $idTurma);
+                                    $stmtCheck->bindParam(':estudante_id', $idEstudante);
+                                    $stmtCheck->execute();
+                                    
+                                    if ($stmtCheck->fetchColumn() == 0) {
+                                        $stmtInsert->bindParam(':turma_id', $idTurma);
+                                        $stmtInsert->bindParam(':estudante_id', $idEstudante);
+                                        $stmtInsert->execute();
+                                        $added++;
+                                    }
+                                }
+                                
+                                $mensagem = "$added alunos adicionados à turma com sucesso!";
+                            }
+                        } else {
+                            $erro = "Turma não encontrada!";
+                        }
+                        
+                        $conn->commit();
+                    } catch(PDOException $e) {
+                        $conn->rollBack();
+                        $erro = "Erro ao adicionar alunos: " . $e->getMessage();
+                    }
+                } elseif (isset($_POST['remover_aluno'])) {
+                    $idTurma = $_POST['turma_id'];
+                    $idEstudante = $_POST['estudante_id'];
+                    
+                    try {
+                        $stmt = $conn->prepare("
+                            DELETE FROM estudante_turma 
+                            WHERE turma_id = :turma_id AND estudante_id = :estudante_id
+                        ");
+                        $stmt->bindParam(':turma_id', $idTurma);
+                        $stmt->bindParam(':estudante_id', $idEstudante);
+                        $stmt->execute();
+                        
+                        $mensagem = "Aluno removido da turma com sucesso!";
+                    } catch(PDOException $e) {
+                        $erro = "Erro ao remover aluno: " . $e->getMessage();
+                    }
+                }
+            }
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
 
             $alunosTurma = []; // Garantir definição inicial como array vazio
             $alunosDisponiveis = []; // Inicializa como array vazio
@@ -198,7 +341,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Pitruca Camama - Visualização de Turmas</title>
+=======
+    <title>Sistema Escolar - Visualização de Turmas</title>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -793,10 +940,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </button>
                                         <?php endif; ?>
                                         
+<<<<<<< HEAD
                                        <a href="turma_detalhes.php?id=<?php echo $turma['id']; ?>" class="btn" style="text-decoration: none;">
                                             <i class="fas fa-eye"></i> Ver Detalhes
                                         </a>
 
+=======
+                                        <a href="turma_detalhes.php?id=<?php echo $turma['id']; ?>" class="btn">
+                                            <i class="fas fa-eye"></i> Ver Detalhes
+                                        </a>
+>>>>>>> 799fa082992a47807b821e9d39588f5fb432ef31
                                     </div>
                                     
                                     <div id="modal-<?php echo $turma['id']; ?>" class="modal">
