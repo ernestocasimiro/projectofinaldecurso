@@ -1,0 +1,63 @@
+
+
+
+/* Filtro do Banner*/
+.page-header1 {
+    background: linear-gradient(rgba(25, 14, 83, 0.5), rgba(14, 7, 46, 0.5)), url(../img/enferm.jpeg) center center no-repeat;
+    background-size: cover;
+}
+
+/* Área sobre o curso*/
+
+.teste{ /* permite alterar posição da imagem*/
+  margin-left: 10%;
+  }
+/* Fim da Área sobre o curso*/
+
+/* Início da área dos conteúdos programáticos*/
+.titulo {
+    color: #1a57d8;
+    margin-bottom: 40px;
+  }
+  
+  .container-s {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .linhas {
+    display: flex;
+    gap: 40px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .bloco {
+    background-color: #fdfdfd;
+    border: 2px solid #cfe0ff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #e0e0e0;
+    padding: 20px;
+    max-width: 350px;
+    text-align: left;
+  }
+  
+  .central {
+    margin: 20px 0;
+  }
+  
+  .classe {
+    color: #1a57d8;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }

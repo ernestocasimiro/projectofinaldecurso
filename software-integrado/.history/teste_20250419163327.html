@@ -1,0 +1,77 @@
+Vamos adicionar as pop-ups independentes para cada um dos cursos que você listou. Vou modificar o seu código HTML para incluir as pop-ups e adicionar o CSS e JavaScript necessários para que funcionem corretamente. 
+
+### HTML Modificado
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Disponíveis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container-xxl py-5">
+        <div class="container py-5">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="text-secondary text-uppercase">Cursos Disponíveis</h6>
+                <h1 class="mb-5">Explore os mais diversos cursos</h1>
+            </div>
+            <div class="row g-4">
+                <!-- Curso 1 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="img/cursocej.png" alt="">
+                        </div>
+                        <h4 class="mb-3">Ciências Económicas e jurídicas</h4>
+                        <p>Este curso integra conhecimentos de economia e direito...</p>
+                        <a class="btn-slide mt-2" href="javascript:void(0);" onclick="openPopup('popup1')"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                    </div>
+                </div>
+                <!-- Curso 2 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="img/cursocfb.png" alt="">
+                        </div>
+                        <h4 class="mb-3">Ciências Físicas e Biológicas</h4>
+                        <p>Explora os princípios da física e biologia...</p>
+                        <a class="btn-slide mt-2" href="javascript:void(0);" onclick="openPopup('popup2')"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                    </div>
+                </div>
+                <!-- Curso 3 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="img/cursoenfermagem.png" alt="">
+                        </div>
+                        <h4 class="mb-3">Enfermagem</h4>
+                        <p>Forma profissionais de saúde capacitados...</p>
+                        <a class="btn-slide mt-2" href="javascript:void(0);" onclick="openPopup('popup3')"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                    </div>
+                </div>
+                <!-- Curso 4 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="img/cursoinformatica.png" alt="">
+                        </div>
+                        <h4 class="mb-3">Informática</h4>
+                        <p>O curso oferece uma formação sólida em tecnologias da informação...</p>
+                        <a class="btn-slide mt-2" href="javascript:void(0);" onclick="openPopup('popup4')"><i class="fa fa-arrow-right"></i><span>Read More</span></a>
+                    </div>
+                </div>
+                <!-- Curso 5 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" src="img/cursocontabilidade.png" alt="">
+                        </div>
+                        <h4 class="mb-3">Contabilidade e Gestão</h4>
+                        <p>Focado no gerenciamento financeiro...</p>
+                        <a class="">
+     </a>
+                    </div>
+                </bod>                       

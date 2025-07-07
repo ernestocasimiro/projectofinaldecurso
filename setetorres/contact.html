@@ -1,0 +1,185 @@
+&lt;!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | 7TORRES Fine Dining</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    &lt;!-- Preloader -->
+    <div class="preloader">
+        <div class="logo-animation">
+            <span>7</span>
+            <span>T</span>
+            <span>O</span>
+            <span>R</span>
+            <span>R</span>
+            <span>E</span>
+            <span>S</span>
+        </div>
+    </div>
+
+    &lt;!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>7<span>TORRES</span></h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="index.html#reservation" class="btn btn-primary">Reserve</a>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    &lt;!-- Page Banner -->
+    <section class="page-banner">
+        <div class="page-banner-bg">
+            <img src="/placeholder.svg?height=1080&width=1920" alt="7Torres Restaurant Exterior">
+        </div>
+        <div class="page-banner-overlay"></div>
+        <div class="banner-content">
+            <span class="subtitle">Get in Touch</span>
+            <h1>Contact Us</h1>
+            <div class="separator"><span></span></div>
+            <p>We look forward to hearing from you and assisting with your inquiries</p>
+        </div>
+    </section>
+
+    &lt;!-- Contact Information -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Reach Out</span>
+                <h2>How to Connect</h2>
+                <div class="separator"><span></span></div>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>25 Royal Avenue<br>New York, NY 10021<br>United States</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Telephone</h3>
+                    <p>Reservations: (212) 555-7777<br>Private Events: (212) 555-7778<br>Administration: (212) 555-7779</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>Reservations: reservations@7torres.com<br>Private Events: events@7torres.com<br>Press Inquiries: press@7torres.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    &lt;!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-form-container">
+                <div class="contact-form-header">
+                    <h3>Send Us a Message</h3>
+                    <p>We will respond to your inquiry within 24 hours</p>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="reservation">Reservation Inquiry</option>
+                                <option value="private-event">Private Event</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="press">Press Inquiry</option>
+                                <option value="careers">Careers</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    &lt;!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2176017952144!2d-73.9640523!3d40.7661599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258e4a1c884e5%3A0x24fe1071086b36d5!2sThe%20Metropolitan%20Museum%20of%20Art!5e0!3m2!1sen!2sus!4v1652458995615!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-overlay">
+            <h3>Visit Us</h3>
+            <p>Located in the heart of Manhattan's Upper East Side, 7TORRES is easily accessible by public transportation or private vehicle.</p>
+            <a href="https://goo.gl/maps/JGEtKzJPq8v8XMRG7" target="_blank" class="btn btn-secondary">Get Directions</a>
+        </div>
+    </section>
+
+    &lt;!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h2>7<span>TORRES</span></h2>
+                        <p>Culinary excellence since 1995</p>
+                        <div class="footer-awards">
+                            <img src="/placeholder.svg?height=50&width=50" alt="Michelin 3 Stars">
+                            <img src="/placeholder.svg?height=50&width=50" alt="World's 50 Best">
+                            <img src="/placeholder.svg?height=50&width=50" alt="James Beard Award">
+                        </div>
+                    </div>
+                    <div class="footer-nav">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href

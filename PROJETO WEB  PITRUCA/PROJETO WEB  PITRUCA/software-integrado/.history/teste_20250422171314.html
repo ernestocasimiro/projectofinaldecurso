@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cursos Oferecidos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .curso {
+      background-color: #fff;
+      border-radius: 12px;
+      margin: 20px 0;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .curso:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .curso-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .curso h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #34495e;
+    }
+
+    .toggle-btn {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .curso-conteudo {
+      margin-top: 15px;
+      display: none;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Cursos e Séries Oferecidas</h1>
+
+    <div class="curso">
+      <div class="curso-header" onclick="toggleConteudo(this)">
+        <h2>Educação Infantil</h2>
+        <button class="toggle-btn">Ver mais</button>
+      </div>
+      <div class="curso-conteudo">
+        <p>Voltado para crianças de 2 a 5 anos. Trabalhamos com atividades lúdicas, socialização, desenvolvimento motor e emocional.</p>
+      </div>
+    </div>
+
+    <div class="curso">
+      <div class="curso-header" onclick="toggleConteudo(this)">
+        <h2>Ensino Fundamental</h2>
+        <button class="toggle-btn">Ver mais</button>
+      </div>
+      <div class="curso-conteudo">
+        <p>Do 1º ao 9º ano, com foco no desenvolvimento acadêmico, pensamento crítico, leitura, escrita e matemática.</p>
+      </div>
+    </div>
+
+    <div class="curso">
+      <div class="curso-header" onclick="toggleConteudo(this)">
+        <h2>Ensino Médio</h2>
+        <button class="toggle-btn">Ver mais</button>
+      </div>
+      <div class="curso-conteudo">
+        <p>Preparação para vestibulares, ENEM e mundo do trabalho. Ênfase em ciência, humanidades e projetos interdisciplinares.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleConteudo(elemento) {
+      const conteudo = elemento.nextElementSibling;
+      const botao = elemento.querySelector('.toggle-btn');
+      
+      if (conteudo.style.display === 'block') {
+        conteudo.style.display = 'none';
+        botao.innerText = 'Ver mais';
+      } else {
+        conteudo.style.display = 'block';
+        botao.innerText = 'Ver menos';
+      }
+    }
+  </script>
+
+</body>
+</html>
